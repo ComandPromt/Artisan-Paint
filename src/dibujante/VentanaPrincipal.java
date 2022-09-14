@@ -68,21 +68,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	public VentanaPrincipal() {
 		
-            initComponents();
+        initComponents();
 	
-            this.setExtendedState(this.MAXIMIZED_BOTH);
+        this.setExtendedState(this.MAXIMIZED_BOTH);
 	
-            setTitle("Dibujante - Nueva Imagen");
+        setTitle("Dibujante - Nueva Imagen");
 
 		setLocationRelativeTo(null);
 
 		panelDeDibujo = new PanelDeDibujo();
 
 		add(panelDeDibujo, BorderLayout.CENTER);
+		
 		panelDeDibujo.setVentanaPrincipal(this);
 
-		panelColor1.setBackground(Color.BLACK);
-		panelColor2.setBackground(Color.WHITE);
+		color1.setBackground(Color.BLACK);
+		
+		color2.setBackground(Color.WHITE);
 
 		botonSeleccionado = "";
 		figurasDisponibles = listaFigurasDisponibles();
@@ -108,38 +110,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btn22 = new javax.swing.JToggleButton();
         btn20 = new javax.swing.JToggleButton();
         btn23 = new javax.swing.JToggleButton();
-        panelColor1 = new javax.swing.JPanel();
-        panelColor2 = new javax.swing.JPanel();
-        comboGrosor = new javax.swing.JComboBox<>();
+        color1 = new javax.swing.JPanel();
+        color2 = new javax.swing.JPanel();
+        grosor = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         btn24 = new javax.swing.JToggleButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         lblFigura = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        rotarIzquierda = new javax.swing.JToggleButton();
+        previsualizarFigura = new javax.swing.JLabel();
+        girarIzquierda = new javax.swing.JToggleButton();
         centrar = new javax.swing.JToggleButton();
-        anguloGiro = new javax.swing.JTextField();
-        rotarDerecha = new javax.swing.JToggleButton();
+        texto = new javax.swing.JTextField();
+        girarDerecha = new javax.swing.JToggleButton();
         limpiarTodo = new javax.swing.JToggleButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         vueltas = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         anguloGiro360 = new javax.swing.JTextField();
-        verRegla = new javax.swing.JCheckBox();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        figuraRellena = new javax.swing.JCheckBox();
+        spray = new javax.swing.JToggleButton();
         jLabel8 = new javax.swing.JLabel();
-        vueltas1 = new javax.swing.JTextField();
-        vueltas2 = new javax.swing.JTextField();
+        moverAbajo = new javax.swing.JTextField();
+        moverArriba = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        nombreFigura = new javax.swing.JComboBox<>();
         efectoFigura = new javax.swing.JComboBox<>();
-        efectoFigura1 = new javax.swing.JComboBox<>();
-        figuraRellena = new javax.swing.JCheckBox();
-        efectoFigura3 = new javax.swing.JComboBox<>();
+        verRegla = new javax.swing.JCheckBox();
+        subTipoFigura = new javax.swing.JComboBox<>();
         jToggleButton4 = new javax.swing.JToggleButton();
         jLabel9 = new javax.swing.JLabel();
-        vueltas3 = new javax.swing.JTextField();
+        anguloGiro = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -204,44 +206,44 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        panelColor1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelColor1.addMouseListener(new java.awt.event.MouseAdapter() {
+        color1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        color1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelColor1MouseClicked(evt);
+            //    color1MouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout panelColor1Layout = new javax.swing.GroupLayout(panelColor1);
-        panelColor1.setLayout(panelColor1Layout);
-        panelColor1Layout.setHorizontalGroup(
-            panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout color1Layout = new javax.swing.GroupLayout(color1);
+        color1.setLayout(color1Layout);
+        color1Layout.setHorizontalGroup(
+            color1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        panelColor1Layout.setVerticalGroup(
-            panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 29, Short.MAX_VALUE)
+        color1Layout.setVerticalGroup(
+            color1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        panelColor2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelColor2.addMouseListener(new java.awt.event.MouseAdapter() {
+        color2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        color2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelColor2MouseClicked(evt);
+             //   color2MouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout panelColor2Layout = new javax.swing.GroupLayout(panelColor2);
-        panelColor2.setLayout(panelColor2Layout);
-        panelColor2Layout.setHorizontalGroup(
-            panelColor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout color2Layout = new javax.swing.GroupLayout(color2);
+        color2.setLayout(color2Layout);
+        color2Layout.setHorizontalGroup(
+            color2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        panelColor2Layout.setVerticalGroup(
-            panelColor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 32, Short.MAX_VALUE)
+        color2Layout.setVerticalGroup(
+            color2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 36, Short.MAX_VALUE)
         );
 
-        comboGrosor.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        comboGrosor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "4", "6", "8", "10", "12" }));
+        grosor.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        grosor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "4", "6", "8", "10", "12" }));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel5.setText("Grosor");
@@ -273,17 +275,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lblFigura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFigura.setText("Lapiz");
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("aaaa");
+        previsualizarFigura.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
-        grupoToogleButtons.add(rotarIzquierda);
-        rotarIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rotate_180.png"))); // NOI18N
-        rotarIzquierda.setContentAreaFilled(false);
-        rotarIzquierda.setOpaque(true);
+        grupoToogleButtons.add(girarIzquierda);
+        girarIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rotate_180.png"))); // NOI18N
+        girarIzquierda.setContentAreaFilled(false);
+        girarIzquierda.setOpaque(true);
         jToggleButton1.setToolTipText("Insertar imagen.");
-        rotarIzquierda.addActionListener(new java.awt.event.ActionListener() {
+        girarIzquierda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            //    rotarIzquierdaActionPerformed(evt);
+//                girarIzquierdaActionPerformed(evt);
             }
         });
 
@@ -294,18 +295,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jToggleButton1.setToolTipText("Insertar imagen.");
         centrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-             //   centrarActionPerformed(evt);
+          //      centrarActionPerformed(evt);
             }
         });
 
-        grupoToogleButtons.add(rotarDerecha);
-        rotarDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rotate_180_r.png"))); // NOI18N
-        rotarDerecha.setContentAreaFilled(false);
-        rotarDerecha.setOpaque(true);
+        grupoToogleButtons.add(girarDerecha);
+        girarDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rotate_180_r.png"))); // NOI18N
+        girarDerecha.setContentAreaFilled(false);
+        girarDerecha.setOpaque(true);
         jToggleButton1.setToolTipText("Insertar imagen.");
-        rotarDerecha.addActionListener(new java.awt.event.ActionListener() {
+        girarDerecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            //    rotarDerechaActionPerformed(evt);
+                girarDerechaActionPerformed(evt);
             }
         });
 
@@ -327,29 +328,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/grados.png"))); // NOI18N
 
-        grupoToogleButtons.add(jToggleButton2);
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/spray.png"))); // NOI18N
-        jToggleButton2.setContentAreaFilled(false);
-        jToggleButton2.setOpaque(true);
+        grupoToogleButtons.add(spray);
+        spray.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/spray.png"))); // NOI18N
+        spray.setContentAreaFilled(false);
+        spray.setOpaque(true);
         jToggleButton1.setToolTipText("Insertar imagen.");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        spray.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                sprayActionPerformed(evt);
             }
         });
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regla.png"))); // NOI18N
 
-        vueltas2.addActionListener(new java.awt.event.ActionListener() {
+        moverArriba.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vueltas2ActionPerformed(evt);
+                moverArribaActionPerformed(evt);
             }
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/move_top.png"))); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/move_down.png"))); // NOI18N
+
+        nombreFigura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        nombreFigura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreFiguraActionPerformed(evt);
+            }
+        });
 
         efectoFigura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         efectoFigura.addActionListener(new java.awt.event.ActionListener() {
@@ -358,23 +366,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        efectoFigura1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        efectoFigura1.addActionListener(new java.awt.event.ActionListener() {
+        verRegla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                efectoFigura1ActionPerformed(evt);
+                verReglaActionPerformed(evt);
             }
         });
 
-        figuraRellena.addActionListener(new java.awt.event.ActionListener() {
+        subTipoFigura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        subTipoFigura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                figuraRellenaActionPerformed(evt);
-            }
-        });
-
-        efectoFigura3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        efectoFigura3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                efectoFigura3ActionPerformed(evt);
+                subTipoFiguraActionPerformed(evt);
             }
         });
 
@@ -401,16 +402,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboGrosor, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelColor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelColor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(grosor, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(color1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(color2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btn22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(1, 1, 1))
-                    .addComponent(rotarIzquierda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(girarIzquierda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(centrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -419,19 +420,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(limpiarTodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rotarDerecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(spray, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(girarDerecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(verRegla, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(figuraRellena, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToggleButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(vueltas3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(anguloGiro, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -442,8 +443,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(vueltas2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vueltas1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(moverArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(moverAbajo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -455,20 +456,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(anguloGiro360, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(anguloGiro)
+                        .addComponent(texto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(figuraRellena, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(verRegla, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(efectoFigura3, javax.swing.GroupLayout.Alignment.LEADING, 0, 265, Short.MAX_VALUE)
-                    .addComponent(efectoFigura, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(efectoFigura1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(subTipoFigura, javax.swing.GroupLayout.Alignment.LEADING, 0, 265, Short.MAX_VALUE)
+                    .addComponent(nombreFigura, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(efectoFigura, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10)
                 .addComponent(lblFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(previsualizarFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(260, 260, 260))
         );
         jPanel2Layout.setVerticalGroup(
@@ -476,74 +477,73 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jToggleButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(anguloGiro))
+                    .addComponent(texto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(verRegla, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(figuraRellena, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vueltas2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(moverArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel4))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(limpiarTodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(nombreFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(limpiarTodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(efectoFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(verRegla, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(grosor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(subTipoFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vueltas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(efectoFigura, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(anguloGiro360))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(figuraRellena, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(comboGrosor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(efectoFigura3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(vueltas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
-                                        .addComponent(efectoFigura1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(anguloGiro360))))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel9)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btn23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btn20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(panelColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(rotarIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(centrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(rotarDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(panelColor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(vueltas3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(vueltas1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addComponent(btn23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(spray, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(color1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(color2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(girarIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(centrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(girarDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(anguloGiro, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(moverAbajo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(previsualizarFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("", jPanel2);
@@ -610,37 +610,37 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rotarDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotarDerechaActionPerformed
+    private void girarDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girarDerechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rotarDerechaActionPerformed
+    }//GEN-LAST:event_girarDerechaActionPerformed
 
     private void limpiarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarTodoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_limpiarTodoActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void sprayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sprayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    }//GEN-LAST:event_sprayActionPerformed
 
-    private void vueltas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vueltas2ActionPerformed
+    private void moverArribaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverArribaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_vueltas2ActionPerformed
+    }//GEN-LAST:event_moverArribaActionPerformed
+
+    private void nombreFiguraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreFiguraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreFiguraActionPerformed
 
     private void efectoFiguraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efectoFiguraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_efectoFiguraActionPerformed
 
-    private void efectoFigura1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efectoFigura1ActionPerformed
+    private void subTipoFiguraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subTipoFiguraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_efectoFigura1ActionPerformed
+    }//GEN-LAST:event_subTipoFiguraActionPerformed
 
-    private void efectoFigura3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efectoFigura3ActionPerformed
+    private void verReglaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReglaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_efectoFigura3ActionPerformed
-
-    private void figuraRellenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_figuraRellenaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_figuraRellenaActionPerformed
+    }//GEN-LAST:event_verReglaActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
         // TODO add your handling code here:
@@ -761,14 +761,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JToggleButton btn23;
     private javax.swing.JToggleButton btn24;
     private javax.swing.JToggleButton centrar;
-    private javax.swing.JComboBox<String> comboGrosor;
+    public javax.swing.JPanel color1;
+    private javax.swing.JPanel color2;
     private javax.swing.JComboBox<String> efectoFigura;
-    private javax.swing.JComboBox<String> efectoFigura1;
-    private javax.swing.JComboBox<String> efectoFigura3;
     private javax.swing.JCheckBox figuraRellena;
+    private javax.swing.JToggleButton girarDerecha;
+    private javax.swing.JToggleButton girarIzquierda;
+    private javax.swing.JComboBox<String> grosor;
     private javax.swing.ButtonGroup grupoMenuItemFiguras;
     private javax.swing.ButtonGroup grupoToogleButtons;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -789,19 +790,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JLabel lblFigura;
     private javax.swing.JToggleButton limpiarTodo;
-    public javax.swing.JPanel panelColor1;
-    private javax.swing.JPanel panelColor2;
-    private javax.swing.JToggleButton rotarDerecha;
-    private javax.swing.JToggleButton rotarIzquierda;
+    private javax.swing.JTextField moverAbajo;
+    private javax.swing.JTextField moverArriba;
+    private javax.swing.JComboBox<String> nombreFigura;
+    private javax.swing.JLabel previsualizarFigura;
+    private javax.swing.JToggleButton spray;
+    private javax.swing.JComboBox<String> subTipoFigura;
+    private javax.swing.JTextField texto;
     private javax.swing.JCheckBox verRegla;
     private javax.swing.JTextField vueltas;
-    private javax.swing.JTextField vueltas1;
-    private javax.swing.JTextField vueltas2;
-    private javax.swing.JTextField vueltas3;
     // End of variables declaration//GEN-END:variables
 
 	// Metodos para saber que se dibujara
@@ -1171,7 +1171,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 		Graphics2D g2 = image.createGraphics();
 		panelDeDibujo.paint(g2);
 		Color colorObjetivo = new Color(image.getRGB(puntoActual.x, puntoActual.y));
-		panelColor1.setBackground(colorObjetivo);
+		color1.setBackground(colorObjetivo);
 		panelDeDibujo.setFiguraActual(null);
 		return colorObjetivo;
 	}
@@ -1180,7 +1180,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 		colorSeleccionado = JColorChooser.showDialog(this, "Selecciona un color.", colorSeleccionado);
 		if (colorSeleccionado != null) {
 			panelDeDibujo.setColorActual(colorSeleccionado);
-			panelColor1.setBackground(colorSeleccionado);
+			color1.setBackground(colorSeleccionado);
 		}
 	}
 
@@ -1188,7 +1188,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 		colorSeleccionado = JColorChooser.showDialog(this, "Selecciona un color.", colorSeleccionado);
 		if (colorSeleccionado != null) {
 			panelDeDibujo.setColorSecundarioActual(colorSeleccionado);
-			panelColor2.setBackground(colorSeleccionado);
+			color2.setBackground(colorSeleccionado);
 		}
 	}
 
@@ -1223,11 +1223,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	// Getters y Setters
 	public boolean getSiseDibujaraRellena() {
-		return figuraRellena.isSelected();
+		return verRegla.isSelected();
 	}
 
 	public int getGrosorSeleccionado() {
-		return comboGrosor.getSelectedIndex() + 1;
+		return grosor.getSelectedIndex() + 1;
 	}
 
 	public String getFiguraSeleccionada() {

@@ -172,10 +172,10 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboGrosor" min="-2" pref="61" max="-2" attributes="0"/>
+                                  <Component id="grosor" min="-2" pref="61" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="panelColor1" max="32767" attributes="0"/>
-                              <Component id="panelColor2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="color1" max="32767" attributes="0"/>
+                              <Component id="color2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -184,7 +184,7 @@
                                   <Component id="btn22" max="32767" attributes="0"/>
                                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="rotarIzquierda" alignment="0" max="32767" attributes="0"/>
+                              <Component id="girarIzquierda" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -195,21 +195,21 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="limpiarTodo" max="32767" attributes="0"/>
-                              <Component id="jToggleButton2" max="32767" attributes="0"/>
-                              <Component id="rotarDerecha" max="32767" attributes="0"/>
+                              <Component id="spray" max="32767" attributes="0"/>
+                              <Component id="girarDerecha" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jToggleButton1" max="32767" attributes="0"/>
                               <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
-                              <Component id="verRegla" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="figuraRellena" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jToggleButton4" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="vueltas3" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Component id="anguloGiro" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
                                       <Component id="jLabel4" min="-2" pref="47" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -224,8 +224,8 @@
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="vueltas2" min="-2" pref="47" max="-2" attributes="0"/>
-                                      <Component id="vueltas1" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Component id="moverArriba" min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Component id="moverAbajo" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -242,23 +242,23 @@
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="anguloGiro" max="32767" attributes="0"/>
+                                  <Component id="texto" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="figuraRellena" min="-2" pref="19" max="-2" attributes="0"/>
+                                  <Component id="verRegla" min="-2" pref="19" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel8" min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="efectoFigura3" alignment="0" pref="265" max="32767" attributes="0"/>
-                              <Component id="efectoFigura" alignment="0" max="32767" attributes="0"/>
-                              <Component id="efectoFigura1" max="32767" attributes="0"/>
+                              <Component id="subTipoFigura" alignment="0" pref="265" max="32767" attributes="0"/>
+                              <Component id="nombreFigura" alignment="0" max="32767" attributes="0"/>
+                              <Component id="efectoFigura" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="lblFigura" min="-2" pref="94" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="previsualizarFigura" min="-2" pref="170" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -268,13 +268,13 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jToggleButton4" max="32767" attributes="0"/>
-                              <Component id="anguloGiro" max="32767" attributes="0"/>
+                              <Component id="texto" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="verRegla" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="figuraRellena" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="vueltas2" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="moverArriba" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -282,83 +282,81 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="limpiarTodo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btn22" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btn24" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="nombreFigura" min="-2" pref="36" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jToggleButton1" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="limpiarTodo" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btn22" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btn24" alignment="1" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="efectoFigura" min="-2" pref="36" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jToggleButton1" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="figuraRellena" min="-2" pref="36" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="comboGrosor" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                                  <Component id="jLabel5" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jLabel8" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="efectoFigura3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                              <Component id="vueltas" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                                  <Component id="efectoFigura1" pref="36" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="anguloGiro360" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="verRegla" min="-2" pref="36" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="btn23" max="32767" attributes="0"/>
-                                                  <Component id="btn20" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jToggleButton2" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="panelColor1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="rotarIzquierda" min="-2" pref="36" max="-2" attributes="0"/>
-                                                  <Component id="centrar" min="-2" pref="36" max="-2" attributes="0"/>
-                                                  <Component id="rotarDerecha" min="-2" pref="36" max="-2" attributes="0"/>
-                                                  <Component id="panelColor2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="vueltas3" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="jLabel3" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="vueltas1" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="grosor" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblFigura" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="subTipoFigura" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="vueltas" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                          <Component id="efectoFigura" pref="36" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="anguloGiro360" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="btn23" max="32767" attributes="0"/>
+                                              <Component id="btn20" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="spray" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="color1" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="color2" max="32767" attributes="0"/>
+                                              <Component id="girarIzquierda" min="-2" pref="36" max="-2" attributes="0"/>
+                                              <Component id="centrar" min="-2" pref="36" max="-2" attributes="0"/>
+                                              <Component id="girarDerecha" min="-2" pref="36" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="anguloGiro" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="moverAbajo" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblFigura" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="previsualizarFigura" min="-2" pref="120" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -427,7 +425,7 @@
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JToggleButton()"/>
                   </AuxValues>
                 </Component>
-                <Container class="javax.swing.JPanel" name="panelColor1">
+                <Container class="javax.swing.JPanel" name="color1">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -436,7 +434,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelColor1MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="color1MouseClicked"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -450,12 +448,12 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                 </Container>
-                <Container class="javax.swing.JPanel" name="panelColor2">
+                <Container class="javax.swing.JPanel" name="color2">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -464,7 +462,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelColor2MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="color2MouseClicked"/>
                   </Events>
 
                   <Layout>
@@ -475,12 +473,12 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                 </Container>
-                <Component class="javax.swing.JComboBox" name="comboGrosor">
+                <Component class="javax.swing.JComboBox" name="grosor">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="13" style="0"/>
@@ -557,13 +555,12 @@
                     <Property name="text" type="java.lang.String" value="Lapiz"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="previsualizarFigura">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="aaaa"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JToggleButton" name="rotarIzquierda">
+                <Component class="javax.swing.JToggleButton" name="girarIzquierda">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="grupoToogleButtons"/>
@@ -575,7 +572,7 @@
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rotarIzquierdaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="girarIzquierdaActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jToggleButton1.setToolTipText(&quot;Insertar imagen.&quot;);"/>
@@ -599,9 +596,9 @@
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jToggleButton1.setToolTipText(&quot;Insertar imagen.&quot;);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="anguloGiro">
+                <Component class="javax.swing.JTextField" name="texto">
                 </Component>
-                <Component class="javax.swing.JToggleButton" name="rotarDerecha">
+                <Component class="javax.swing.JToggleButton" name="girarDerecha">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="grupoToogleButtons"/>
@@ -613,7 +610,7 @@
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rotarDerechaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="girarDerechaActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jToggleButton1.setToolTipText(&quot;Insertar imagen.&quot;);"/>
@@ -663,9 +660,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="anguloGiro360">
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="verRegla">
+                <Component class="javax.swing.JCheckBox" name="figuraRellena">
                 </Component>
-                <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+                <Component class="javax.swing.JToggleButton" name="spray">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="grupoToogleButtons"/>
@@ -677,7 +674,7 @@
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sprayActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jToggleButton1.setToolTipText(&quot;Insertar imagen.&quot;);"/>
@@ -691,11 +688,11 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="vueltas1">
+                <Component class="javax.swing.JTextField" name="moverAbajo">
                 </Component>
-                <Component class="javax.swing.JTextField" name="vueltas2">
+                <Component class="javax.swing.JTextField" name="moverArriba">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vueltas2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="moverArribaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2">
@@ -711,6 +708,24 @@
                       <Image iconType="3" name="/imagenes/move_down.png"/>
                     </Property>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="nombreFigura">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreFiguraActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="efectoFigura">
                   <Properties>
@@ -730,7 +745,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="efectoFigura1">
+                <Component class="javax.swing.JCheckBox" name="verRegla">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verReglaActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="subTipoFigura">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -742,30 +762,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="efectoFigura1ActionPerformed"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="figuraRellena">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="figuraRellenaActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="efectoFigura3">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="efectoFigura3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subTipoFiguraActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -796,7 +793,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="vueltas3">
+                <Component class="javax.swing.JTextField" name="anguloGiro">
                 </Component>
               </SubComponents>
             </Container>
