@@ -11,13 +11,9 @@ import util.Figura;
 
 public class PacMan extends Figura {
 
-	private int grados = 0;
-
 	public PacMan(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -68,13 +64,6 @@ public class PacMan extends Figura {
 		g2.drawLine(punto1.x, punto1.y, punto2.x, punto2.y);
 
 		g2.drawLine(punto2.x, punto2.y, punto3.x, punto3.y);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

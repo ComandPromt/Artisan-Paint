@@ -15,8 +15,6 @@ public class Cilindro extends Figura {
 	public Cilindro(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
 			boolean figuraRellena) {
 
-		super(color, backgroundColor, figuraRellena);
-
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
@@ -89,12 +87,6 @@ public class Cilindro extends Figura {
 		g.setColor(getColor());
 
 		g.drawLine(x + anchura, (y + (radius - radius / 2)) - (radius / 4), x + anchura, (y + altura) - (radius / 4));
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-		// TODO Auto-generated method stub
 
 	}
 

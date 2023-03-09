@@ -12,13 +12,9 @@ import util.Figura;
 
 public class TrianguloRectangulo extends Figura {
 
-	private int grados = 0;
-
 	public TrianguloRectangulo(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -48,9 +44,9 @@ public class TrianguloRectangulo extends Figura {
 
 		Point punto1 = new Point(x, y);
 
-		Point punto2 = new Point(x, y + (int) (altura));
+		Point punto2 = new Point(x, y + (altura));
 
-		Point punto3 = new Point(x + anchura, y + (int) (altura));
+		Point punto3 = new Point(x + anchura, y + (altura));
 
 		int[] puntosX = { punto1.x, punto2.x, punto3.x };
 
@@ -69,12 +65,6 @@ public class TrianguloRectangulo extends Figura {
 		g2.setColor(getColor());
 
 		g2.drawPolygon(puntosX, puntosY, 3);
-
-	}
-
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

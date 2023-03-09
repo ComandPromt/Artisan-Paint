@@ -12,13 +12,10 @@ import util.Figura;
 
 public class Escaleno extends Figura {
 
-	private int grados = 0;
+	public Escaleno(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+			boolean figuraRellena) {
 
-	public Escaleno(Point ubicacion, int anchura, int altura, Color color) {
-
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -69,14 +66,6 @@ public class Escaleno extends Figura {
 		g2.setColor(getColor());
 
 		g2.drawPolygon(puntosX, puntosY, 3);
-
-	}
-
-	@Override
-
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

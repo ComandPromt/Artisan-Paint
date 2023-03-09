@@ -16,8 +16,6 @@ public class Mandala_Circulo extends Figura {
 
 	public Mandala_Circulo(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
 		marco = new MarcoDeFigura(ubicacion, anchura, altura, false);
 
 		setMarcoDeFigura(marco);
@@ -78,11 +76,6 @@ public class Mandala_Circulo extends Figura {
 			}
 
 		}
-
-	}
-
-	@Override
-	public void rotar(int grados) {
 
 	}
 

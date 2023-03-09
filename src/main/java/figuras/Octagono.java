@@ -11,13 +11,9 @@ import util.Figura;
 
 public class Octagono extends Figura {
 
-	private int grados = 0;
-
 	public Octagono(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -45,9 +41,9 @@ public class Octagono extends Figura {
 
 		int altura = getMarcoDeFigura().getAltura();
 
-		int separacionX = (int) (anchura / 4);
+		int separacionX = anchura / 4;
 
-		int separacionY = (int) (altura / 4);
+		int separacionY = altura / 4;
 
 		Point punto1 = new Point(x + separacionX, y);
 
@@ -82,13 +78,6 @@ public class Octagono extends Figura {
 		g2.setColor(getColor());
 
 		g2.drawPolygon(puntosX, puntosY, 8);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

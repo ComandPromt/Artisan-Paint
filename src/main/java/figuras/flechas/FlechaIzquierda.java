@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package figuras;
+package figuras.flechas;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -14,15 +9,12 @@ import java.awt.Point;
 import dibujante.MarcoDeFigura;
 import util.Figura;
 
-/**
- *
- * @author Berlis
- */
 public class FlechaIzquierda extends Figura {
 
-	public FlechaIzquierda(Point ubicacion, int anchura, int altura, Color color) {
-		super(color);
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+	public FlechaIzquierda(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+			boolean figuraRellena) {
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+
 	}
 
 	@Override
@@ -41,7 +33,7 @@ public class FlechaIzquierda extends Figura {
 		int anchura = getMarcoDeFigura().getAnchura();
 		int altura = getMarcoDeFigura().getAltura();
 
-		int separacion = (int) (altura / (4));
+		int separacion = altura / (4);
 
 		Point punto1 = new Point(x + anchura / 2, y);
 		Point punto2 = new Point(x, y + altura / 2);
@@ -55,20 +47,19 @@ public class FlechaIzquierda extends Figura {
 		int[] puntosY = new int[] { punto1.y, punto2.y, punto3.y, punto4.y, punto5.y, punto6.y, punto7.y };
 
 		if (dibujarRellena()) {
+
 			g2.setColor(getColorSecundario());
+
 			g2.fillPolygon(puntosX, puntosY, 7);
+
 		}
 
 		g2.setStroke(new BasicStroke(getGrosor()));
+
 		g2.setColor(getColor());
+
 		g2.drawPolygon(puntosX, puntosY, 7);
 
-	}
-
-	@Override
-	public void rotar(int grados) {
-		throw new UnsupportedOperationException("Not supported yet."); // Generated from
-																		// nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
 	}
 
 }

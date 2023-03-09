@@ -21,8 +21,6 @@ public class Mandala_3 extends Figura {
 
 	public Mandala_3(Point ubicacion, int anchura, int altura, Color color, boolean fanCircle) {
 
-		super(color);
-
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
 
 		this.fancircle = fanCircle;
@@ -86,11 +84,6 @@ public class Mandala_3 extends Figura {
 		}
 
 		g2.translate(0, 0);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
 
 	}
 

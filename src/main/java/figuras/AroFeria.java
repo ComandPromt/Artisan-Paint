@@ -12,14 +12,10 @@ import util.Figura;
 
 public class AroFeria extends Figura {
 
-	private int grados = 90;
-
 	Point punto;
 
 	public AroFeria(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
 			boolean figuraRellena) {
-
-		super(color, backgroundColor, figuraRellena);
 
 		punto = ubicacion;
 

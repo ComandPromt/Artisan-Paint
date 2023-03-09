@@ -4,12 +4,14 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Toolkit;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 
 public abstract class Figura {
 
@@ -34,6 +36,18 @@ public abstract class Figura {
 	protected int moverAbajo;
 
 	private Estado estadoActual;
+
+	public int getWidth() {
+
+		return marcoDeFigura.anchura;
+
+	}
+
+	public int getHeight() {
+
+		return marcoDeFigura.altura;
+
+	}
 
 	public Color getMainColor() {
 
@@ -221,6 +235,8 @@ public abstract class Figura {
 
 		g.drawLine(10, 10, screenSize.width, 10);
 
+		g.setFont(new Font("Arial", Font.PLAIN, 14));
+
 		for (int i = 0; i <= screenSize.width; i += 50) {
 
 			g.drawString(Integer.toString(i), i, 10);
@@ -240,6 +256,18 @@ public abstract class Figura {
 	public void setDibujarRellena(boolean dibujarRellena) {
 
 		this.dibujarRellena = dibujarRellena;
+
+	}
+
+	public void rotar(Graphics g, Figura figura, int i, int width, int height) {
+
+		Graphics2D g2 = (Graphics2D) g;
+
+		g2.rotate(Math.toRadians(i), width, height);
+
+		figura.dibujar(g);
+
+		VentanaPrincipal.getPanelDeDibujo().setFiguraActual(figura);
 
 	}
 

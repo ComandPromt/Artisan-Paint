@@ -17,8 +17,6 @@ public class MandalaEstrella extends Figura {
 
 	public MandalaEstrella(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
 		marco = new MarcoDeFigura(ubicacion, anchura, altura, false);
 
 		setMarcoDeFigura(marco);
@@ -94,11 +92,6 @@ public class MandalaEstrella extends Figura {
 			e.printStackTrace();
 
 		}
-
-	}
-
-	@Override
-	public void rotar(int grados) {
 
 	}
 

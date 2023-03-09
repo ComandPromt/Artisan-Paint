@@ -14,14 +14,10 @@ public class Feria_Clasico extends Figura {
 
 	private Graphics2D g2;
 
-	private int grados = 0;
-
 	public Feria_Clasico(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
 			boolean figuraRellena) {
 
-		super(color, backgroundColor, figuraRellena);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -50,18 +46,14 @@ public class Feria_Clasico extends Figura {
 		int moverY;
 
 		g2 = (Graphics2D) g;
+		System.out.println(x + anchura / 2 + " , " + y + altura / 2);
+		g2.rotate(-190, x + anchura / 2, y + altura / 2);
 
-		if (this.grados > 0) {
+		getMarcoDeFigura().calcularDimensiones();
 
-			g2.rotate(-190, x + anchura / 2, y + altura);
+		x = getMarcoDeFigura().getX();
 
-			getMarcoDeFigura().calcularDimensiones();
-
-			x = getMarcoDeFigura().getX();
-
-			y = getMarcoDeFigura().getY();
-
-		}
+		y = getMarcoDeFigura().getY();
 
 		altura /= 2;
 
@@ -84,13 +76,6 @@ public class Feria_Clasico extends Figura {
 		g2.drawOval(punto1.x - anchura, punto1.y - altura, anchura * 2, (altura * 2) + 50);
 
 		g2.drawOval((punto1.x - anchura) + (anchura / 2), moverY, anchura, altura + 50);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

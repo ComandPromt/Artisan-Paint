@@ -15,13 +15,9 @@ import util.Figura;
 
 public class Luna extends Figura {
 
-	private int grados = 0;
-
 	public Luna(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -92,13 +88,6 @@ public class Luna extends Figura {
 		area.subtract(new Area(interna));
 
 		return area;
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

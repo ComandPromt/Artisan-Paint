@@ -13,14 +13,12 @@ import util.Figura;
 
 public class DibujoLibre_2 extends Figura {
 
-	private int grados = 0;
 	private boolean malla;
 
-	public DibujoLibre_2(Point ubicacion, int anchura, int altura, Color color, boolean malla) {
-
-		super(color);
-		this.malla = malla;
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+	public DibujoLibre_2(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+			boolean figuraRellena) {
+		this.malla = figuraRellena;
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 	}
 
 	@Override
@@ -79,9 +77,4 @@ public class DibujoLibre_2 extends Figura {
 
 	}
 
-	public void rotar(int grados) {
-
-		this.grados = grados;
-
-	}
 }

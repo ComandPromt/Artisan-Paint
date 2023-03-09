@@ -30,9 +30,7 @@ public class Curva extends Figura {
 
 	public Curva(Point ubicacion, int anchura, int altura, Color color, boolean fanCircle) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -128,9 +126,4 @@ public class Curva extends Figura {
 		g2.draw(p);
 	}
 
-	@Override
-	public void rotar(int grados) {
-		// TODO Auto-generated method stub
-
-	}
 }

@@ -1,4 +1,4 @@
-package figuras;
+package figuras.estrellas;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -121,9 +121,8 @@ public class DavidStar extends Figura {
 
 	}
 
-	public DavidStar(Point ubicacion, int anchura, int altura, Color color) {
-
-		super(color);
+	public DavidStar(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+			boolean figuraRellena) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
@@ -172,12 +171,6 @@ public class DavidStar extends Figura {
 		g.drawLine(x + width / 2, y + height, x + width, y + centerY);
 
 		g.drawLine(x, y + centerY, x + width, y + centerY);
-
-	}
-
-	@Override
-
-	public void rotar(int grados) {
 
 	}
 

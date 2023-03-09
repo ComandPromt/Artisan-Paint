@@ -13,15 +13,11 @@ public class Imagen extends Figura {
 
 	private BufferedImage bimg;
 
-	private int grados = 0;
-
 	public Imagen(Point ubicacion, int anchura, int altura, Color color, BufferedImage bimg) {
-
-		super(color);
 
 		this.bimg = bimg;
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -50,13 +46,6 @@ public class Imagen extends Figura {
 		int altura = getMarcoDeFigura().getAltura();
 
 		g2.drawImage(bimg, x, y, anchura, altura, null);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

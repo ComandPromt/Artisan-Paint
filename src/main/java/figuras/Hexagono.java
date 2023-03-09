@@ -11,13 +11,9 @@ import util.Figura;
 
 public class Hexagono extends Figura {
 
-	private int grados = 0;
-
 	public Hexagono(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -74,13 +70,6 @@ public class Hexagono extends Figura {
 		g2.setColor(getColor());
 
 		g2.drawPolygon(puntosX, puntosY, 6);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

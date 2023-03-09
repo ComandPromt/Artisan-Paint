@@ -15,13 +15,12 @@ public class Mandala_2 extends Figura {
 
 	public boolean fancircle;
 
-	public Mandala_2(Point ubicacion, int anchura, int altura, Color color, boolean fanCircle) {
+	public Mandala_2(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+			boolean figuraRellena) {
 
-		super(color);
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
-
-		this.fancircle = fanCircle;
+		this.fancircle = figuraRellena;
 
 	}
 
@@ -58,10 +57,6 @@ public class Mandala_2 extends Figura {
 			g.drawArc(x, 29, 80, 100, 45, 180);
 
 		}
-
-	}
-
-	public void rotar(int grados) {
 
 	}
 

@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -39,13 +41,14 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import button.SimpleButton;
-import combo_suggestion.ComboBoxSuggestion;
-import figuras.Anillo;
+import com.buttons.simple.SimpleButton;
+import com.comboBox.comboSuggestion.ComboBoxSuggestion;
+import com.spinner.simple.Spinner;
+
 import figuras.Cadena;
+import figuras.Flor;
 import figuras.Imagen;
 import net.java.dev.colorchooser.demo.CopyColor;
-import spinner.Spinner;
 import util.Figura;
 
 @SuppressWarnings("all")
@@ -54,7 +57,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	public static Spinner moverArriba;
 
-	PanelDeDibujo panelDeDibujo;
+	private static PanelDeDibujo panelDeDibujo;
 
 	private VentanaPrincipal ventanaPrincipal;
 
@@ -137,9 +140,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		case "Circulo":
 
+			subTipoFigura.addItem("Corazon");
+
 			subTipoFigura.addItem("Circulo");
 
+			subTipoFigura.addItem("Anillo");
+
 			subTipoFigura.addItem("Rueda");
+
+			subTipoFigura.addItem("Semi Circulo");
+
+			subTipoFigura.addItem("Medio Circulo");
 
 			break;
 
@@ -211,12 +222,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			subTipoFigura.addItem("Cruz");
 
-			subTipoFigura.addItem("Anillo");
-
-			subTipoFigura.addItem("Semi Circulo");
-
-			subTipoFigura.addItem("Medio Circulo");
-
 			break;
 
 		case "Estrella":
@@ -257,9 +262,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		getContentPane().setBackground(Color.WHITE);
 
-		setAlwaysOnTop(true);
-
-		setTitle("Test");
+		setTitle("Artisan Paint");
 
 		JMenuBar menuBar = new JMenuBar();
 
@@ -275,15 +278,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		initComponents();
 
-		setVisible(true);
-
 	}
 
 	void obtenerFiguras() {
 
-		efectosFiguras.add("Circulo");
-
 		listaFiguras.add("Otros");
+
+		listaFiguras.add("Circulo");
 
 		Collections.sort(listaFiguras);
 
@@ -340,7 +341,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		case 1:
 
-			figuraActual = new Anillo(puntoActual, anchura, altura, colorPrimario, colorSecundario, relleno);
+			figuraActual = new Flor(puntoActual, anchura, altura, colorPrimario, colorSecundario, relleno);
 
 			figuraActual.setDibujarRellena(dibujarRellena.isSelected());
 
@@ -349,6 +350,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			figuraActual.setMainColor(color1.getColor());
 
 			figuraActual.setBackgroundColor(color2.getColor());
+
+//			figuraActual = new Anillo(puntoActual, anchura, altura, colorPrimario, colorSecundario, relleno);
+//
+//			figuraActual.setDibujarRellena(dibujarRellena.isSelected());
+//
+//			figuraActual.setVueltas(vueltas.getValor());
+//
+//			figuraActual.setMainColor(color1.getColor());
+//
+//			figuraActual.setBackgroundColor(color2.getColor());
 
 			break;
 
@@ -720,7 +731,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private void funcionBtnNuevo() {
 
-		if (!panelDeDibujo.getFiguras().isEmpty()) {
+		if (!getPanelDeDibujo().getFiguras().isEmpty()) {
 
 			int resultado = JOptionPane.showConfirmDialog(this, "Deseas guardar los cambios ?", this.getTitle(),
 					JOptionPane.YES_NO_CANCEL_OPTION);
@@ -752,13 +763,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private void nuevo() {
 
-		panelDeDibujo.getFiguras().clear();
+		getPanelDeDibujo().getFiguras().clear();
 
-		panelDeDibujo.getFigurasDeshechas().clear();
+		getPanelDeDibujo().getFigurasDeshechas().clear();
 
-		panelDeDibujo.setBackground(Color.WHITE);
+		getPanelDeDibujo().setBackground(Color.WHITE);
 
-		panelDeDibujo.repaint();
+		getPanelDeDibujo().repaint();
 
 	}
 
@@ -788,44 +799,65 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 				System.out.println("Guardar Como: " + archivoAGuardar.getAbsolutePath());
 
-				BufferedImage bi = new BufferedImage(panelDeDibujo.getWidth(), panelDeDibujo.getHeight(),
+				BufferedImage bi = new BufferedImage(getPanelDeDibujo().getWidth(), getPanelDeDibujo().getHeight(),
 						BufferedImage.TYPE_INT_ARGB);
+
 				Graphics2D g = bi.createGraphics();
-				panelDeDibujo.paint(g);
+
+				getPanelDeDibujo().paint(g);
+
 				ImageIO.write(bi, "PNG", new File(archivoAGuardar.getAbsolutePath() + extension));
+
 				System.out.println(archivoAGuardar.getName());
+
 			} catch (IOException ex) {
 
 			}
+
 		}
 
 		return resultado;
+
 	}
 
 	private BufferedImage abrirImagen() {
 
 		JFileChooser f = new JFileChooser();
+
 		BufferedImage bimg = null;
 
 		f.setFileFilter(new FileNameExtensionFilter("Solo Aceptan Archivos JPG o PNG", "jpg", "png"));
+
 		f.setCurrentDirectory(new File(System.getProperty("user.home")));
+
 		f.setAcceptAllFileFilterUsed(false);
 
 		int resultado = f.showOpenDialog(this);
+
 		if (resultado == JFileChooser.APPROVE_OPTION) {
+
 			try {
+
 				File archivoSeleccionado = f.getSelectedFile();
+
 				System.out.println("Archivo Seleccionado: " + archivoSeleccionado.getAbsolutePath());
 
 				bimg = ImageIO.read(new File(archivoSeleccionado.getAbsolutePath()));
 
-			} catch (IOException ex) {
+			}
+
+			catch (IOException ex) {
+
 				ex.printStackTrace();
+
 			}
 
 			return bimg;
+
 		}
+
 		return bimg;
+
 	}
 
 	private void insertarImagenMovible() {
@@ -836,11 +868,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			// lblFigura.setText(botonSeleccionado);
 
-			panelDeDibujo.setFiguraActual(new Imagen(new Point(0, 0), 100, 100, Color.BLACK, bimg));
+			getPanelDeDibujo().setFiguraActual(new Imagen(new Point(0, 0), 100, 100, Color.BLACK, bimg));
 
-			panelDeDibujo.getFiguras().add(panelDeDibujo.getFiguraActual());
+			getPanelDeDibujo().getFiguras().add(getPanelDeDibujo().getFiguraActual());
 
-			panelDeDibujo.repaint();
+			getPanelDeDibujo().repaint();
 
 		}
 
@@ -848,7 +880,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private void preguntarAntesDeCerrar() {
 
-		if (!panelDeDibujo.getFiguras().isEmpty()) {
+		if (!getPanelDeDibujo().getFiguras().isEmpty()) {
 
 			int resultado = JOptionPane.showConfirmDialog(this, "Deseas guardar los cambios ?",
 					"Dibujante - " + this.getTitle(), JOptionPane.YES_NO_CANCEL_OPTION);
@@ -880,19 +912,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	public Color obtenerColorEn(Point puntoActual) {
 
-		BufferedImage image = new BufferedImage(panelDeDibujo.getWidth(), panelDeDibujo.getHeight(),
+		BufferedImage image = new BufferedImage(getPanelDeDibujo().getWidth(), getPanelDeDibujo().getHeight(),
 
 				BufferedImage.TYPE_4BYTE_ABGR);
 
 		Graphics2D g2 = image.createGraphics();
 
-		panelDeDibujo.paint(g2);
+		getPanelDeDibujo().paint(g2);
 
 		Color colorObjetivo = new Color(image.getRGB(puntoActual.x, puntoActual.y));
 
 		color1.setColor(colorObjetivo);
 
-		panelDeDibujo.setFiguraActual(null);
+		getPanelDeDibujo().setFiguraActual(null);
 
 		return colorObjetivo;
 
@@ -904,7 +936,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		if (colorSeleccionado != null) {
 
-			panelDeDibujo.setColorActual(colorSeleccionado);
+			getPanelDeDibujo().setColorActual(colorSeleccionado);
 
 			color1.setBackground(colorSeleccionado);
 
@@ -918,7 +950,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		if (colorSeleccionado != null) {
 
-			panelDeDibujo.setColorSecundarioActual(colorSeleccionado);
+			getPanelDeDibujo().setColorSecundarioActual(colorSeleccionado);
 
 			color2.setBackground(colorSeleccionado);
 
@@ -928,19 +960,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private void deshacer() {
 
-		Stack<Figura> figurasDeshechas = panelDeDibujo.getFigurasDeshechas();
+		Stack<Figura> figurasDeshechas = getPanelDeDibujo().getFigurasDeshechas();
 
-		ArrayList<Figura> figuras = panelDeDibujo.getFiguras();
+		ArrayList<Figura> figuras = getPanelDeDibujo().getFiguras();
 
 		if (!figuras.isEmpty()) {
 
 			figurasDeshechas.push(figuras.remove(figuras.size() - 1));
 
-			panelDeDibujo.repaint();
+			getPanelDeDibujo().repaint();
 
-			panelDeDibujo.setFiguraActual(null);
+			getPanelDeDibujo().setFiguraActual(null);
 
-			panelDeDibujo.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
+			getPanelDeDibujo().setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
 
 		}
 
@@ -948,15 +980,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private void rehacer() {
 
-		Stack<Figura> figurasDeshechas = panelDeDibujo.getFigurasDeshechas();
+		Stack<Figura> figurasDeshechas = getPanelDeDibujo().getFigurasDeshechas();
 
-		ArrayList<Figura> figuras = panelDeDibujo.getFiguras();
+		ArrayList<Figura> figuras = getPanelDeDibujo().getFiguras();
 
 		if (!figurasDeshechas.isEmpty()) {
 
 			figuras.add(figurasDeshechas.remove(figurasDeshechas.size() - 1));
 
-			panelDeDibujo.repaint();
+			getPanelDeDibujo().repaint();
 
 		}
 
@@ -1103,13 +1135,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			}
 
-			panelDeDibujo = new PanelDeDibujo();
+			setPanelDeDibujo(new PanelDeDibujo());
 
-			panelDeDibujo.setBackground(Color.WHITE);
+			getPanelDeDibujo().addMouseListener(new MouseAdapter() {
 
-			getContentPane().add(panelDeDibujo, BorderLayout.CENTER);
+				@Override
 
-			panelDeDibujo.setVentanaPrincipal(this);
+				public void mousePressed(MouseEvent e) {
+
+//					if (VentanaPrincipal.verRegla.isSelected()) {
+//
+//						// panelDeDibujo.getFiguraActual().pintarRegla(panelDeDibujo.getGraphics());
+//
+//					}
+
+				}
+
+			});
+
+			getPanelDeDibujo().setBackground(Color.WHITE);
+
+			getContentPane().add(getPanelDeDibujo(), BorderLayout.CENTER);
+
+			getPanelDeDibujo().setVentanaPrincipal(this);
 
 			JPanel jPanel2 = new JPanel();
 
@@ -1263,6 +1311,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			SimpleButton girarIzquierda_1 = new SimpleButton("");
 
+			girarIzquierda_1.addMouseListener(new MouseAdapter() {
+
+				@Override
+
+				public void mousePressed(MouseEvent e) {
+					getPanelDeDibujo().removeAll();
+					getPanelDeDibujo().getFiguraActual().rotar(getPanelDeDibujo().getGraphics(),
+							getPanelDeDibujo().getFiguraActual(), 180,
+							getPanelDeDibujo().getFiguraActual().getMarcoDeFigura().getX()
+									+ (getPanelDeDibujo().getFiguraActual().getWidth() / 2),
+							getPanelDeDibujo().getFiguraActual().getMarcoDeFigura().getY()
+									+ (getPanelDeDibujo().getFiguraActual().getHeight() / 2)
+
+					);
+
+				}
+
+			});
+
 			girarIzquierda_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/rotate_180.png")));
 
 			girarIzquierda_1.setOpaque(true);
@@ -1311,7 +1378,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			btn23_1.addActionListener(new ActionListener() {
 
 				@Override
-
 				public void actionPerformed(ActionEvent e) {
 
 					dibujarFigura(-1);
@@ -1786,12 +1852,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 			layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
 					.addComponent(jPanel2, GroupLayout.DEFAULT_SIZE, 1207, Short.MAX_VALUE)
-					.addComponent(panelDeDibujo, GroupLayout.DEFAULT_SIZE, 1207, Short.MAX_VALUE));
+					.addComponent(getPanelDeDibujo(), GroupLayout.DEFAULT_SIZE, 1207, Short.MAX_VALUE));
 			layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
 					.addGroup(layout.createSequentialGroup()
 							.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 189, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(panelDeDibujo, GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)));
+							.addComponent(getPanelDeDibujo(), GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)));
 
 			getContentPane().setLayout(layout);
 
@@ -1809,7 +1875,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private void dibujarFigura(int figuraSeleccionada) {
 
-		panelDeDibujo.setFiguraSeleccionada(figuraSeleccionada);
+		getPanelDeDibujo().setFiguraSeleccionada(figuraSeleccionada);
 
 		// lblFigura.setText(figuraSeleccionada);
 
@@ -1850,4 +1916,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 		return vueltas.getValor();
 
 	}
+
+	public static PanelDeDibujo getPanelDeDibujo() {
+
+		return panelDeDibujo;
+
+	}
+
+	public void setPanelDeDibujo(PanelDeDibujo panelDeDibujo) {
+
+		this.panelDeDibujo = panelDeDibujo;
+
+	}
+
 }

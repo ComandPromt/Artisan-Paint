@@ -19,13 +19,12 @@ public class DibujoLibre_4 extends Figura {
 
 	public boolean fancircle;
 
-	public DibujoLibre_4(Point ubicacion, int anchura, int altura, Color color, boolean fanCircle) {
+	public DibujoLibre_4(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+			boolean figuraRellena) {
 
-		super(color);
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
-
-		this.fancircle = fanCircle;
+		this.fancircle = figuraRellena;
 
 	}
 

@@ -13,13 +13,13 @@ public class Cruz extends Figura {
 
 	MarcoDeFigura marcoDeLaFigura;
 
-	private int grados = 0;
+	
 
 	public Cruz(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
+		
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -97,12 +97,6 @@ public class Cruz extends Figura {
 
 	}
 
-	@Override
 
-	public void rotar(int grados) {
-
-		this.grados = grados;
-
-	}
 
 }

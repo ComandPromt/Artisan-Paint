@@ -20,13 +20,14 @@ public class LineaRedimensionable extends Figura {
 	private int distanciaEnY;
 
 	public LineaRedimensionable(Point puntoInicial, Point puntoFinal, Color color) {
-		super(color);
-		setMarcoDeFigura(new MarcoDeFigura(puntoInicial, 0, 0));
+
+		setMarcoDeFigura(new MarcoDeFigura(puntoInicial, 0, 0, dibujarRellena));
 		this.puntoInicial = puntoInicial;
 		this.puntoFinal = puntoFinal;
 		dondeEstaMiCursor = "FUERA_DEL_AREA";
 	}
 
+	@Override
 	public void actualizar(Point puntoActual) {
 		this.puntoFinal = puntoActual;
 	}
@@ -45,6 +46,7 @@ public class LineaRedimensionable extends Figura {
 
 	}
 
+	@Override
 	public void dibujar(Graphics g) {
 
 		Graphics2D g2 = (Graphics2D) g;
@@ -147,10 +149,6 @@ public class LineaRedimensionable extends Figura {
 				&& punto.x < ((puntoInicial.x + puntoFinal.x) / 2) + 5
 				&& punto.y > ((puntoInicial.y + puntoFinal.y) / 2) - 5
 				&& punto.y < ((puntoInicial.y + puntoFinal.y) / 2) + 5);
-	}
-
-	public void rotar(int grados) {
-
 	}
 
 }

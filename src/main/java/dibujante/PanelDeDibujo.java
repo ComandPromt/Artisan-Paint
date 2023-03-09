@@ -16,6 +16,8 @@ import util.Figura;
 
 public class PanelDeDibujo extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	private ArrayList<Figura> figuras;
 
 	private Stack<Figura> figurasDeshechas;
@@ -53,21 +55,29 @@ public class PanelDeDibujo extends JPanel {
 		setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
 
 		addMouseListener(new MouseAdapter() {
+
 			@Override
+
 			public void mousePressed(MouseEvent evento) {
 
 				try {
 
 					colorActual = VentanaPrincipal.color1.getColor();
+
 					colorSecundarioActual = VentanaPrincipal.color2.getColor();
+
 					dibujarRellena = ventanaPrincipal.getSiseDibujaraRellena();
 
 					grosor = ventanaPrincipal.getGrosorSeleccionado();
 
 					if (figuraActual != null && figuraActual.contiene(evento.getPoint())) {
+
 						figuraActual.setEstadoArrastrando();
+
 						figuraActual.setPuntosDentroDeLaFigura(evento.getPoint());
+
 						return;
+
 					}
 
 					if (figuraSeleccionada == -1) {
@@ -102,8 +112,6 @@ public class PanelDeDibujo extends JPanel {
 				}
 
 				catch (Exception e) {
-
-					e.printStackTrace();
 
 				}
 
@@ -164,56 +172,88 @@ public class PanelDeDibujo extends JPanel {
 			}
 
 			@Override
+
 			public void mouseMoved(MouseEvent e) {
-				if (figuraActual != null) {
-					setCursor(figuraActual.getCursor(e.getPoint()));
+				try {
+					if (figuraActual != null) {
+
+						setCursor(figuraActual.getCursor(e.getPoint()));
+
+					}
+
 				}
+
+				catch (Exception e1) {
+
+				}
+
 			}
+
 		});
 
 	}
 
 	@Override
 	protected void paintComponent(Graphics g) {
+
 		Graphics2D g2 = (Graphics2D) g;
+
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 		super.paintComponent(g2);
+
 		this.setBackground(Color.WHITE);
 
 		figuras.forEach(figura -> {
 
 			figura.dibujar(g2);
+
+			// figura.pintarRegla(g2);
+
 		});
+
 	}
 
-	// Getters Y Setters
 	public void setVentanaPrincipal(VentanaPrincipal ventanaPrincipal2) {
+
 		this.ventanaPrincipal = ventanaPrincipal2;
+
 	}
 
 	public void setColorActual(Color colorActual) {
+
 		this.colorActual = colorActual;
+
 	}
 
 	public void setColorSecundarioActual(Color colorSecundarioActual) {
+
 		this.colorSecundarioActual = colorSecundarioActual;
+
 	}
 
 	public void setFiguraActual(Figura figuraActual) {
+
 		this.figuraActual = figuraActual;
+
 	}
 
 	public Figura getFiguraActual() {
+
 		return figuraActual;
+
 	}
 
 	public ArrayList<Figura> getFiguras() {
+
 		return figuras;
+
 	}
 
 	public Stack<Figura> getFigurasDeshechas() {
+
 		return figurasDeshechas;
+
 	}
 
-};
+}

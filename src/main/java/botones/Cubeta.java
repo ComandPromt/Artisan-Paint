@@ -1,5 +1,5 @@
 
-package figuras;
+package botones;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -15,17 +15,14 @@ import java.util.Queue;
 import java.util.Stack;
 
 import dibujante.PanelDeDibujo;
+import figuras.Linea;
 import util.Figura;
 
 public class Cubeta extends Figura {
 
 	List<Linea> lineas;
 
-	private int grados = 0;
-
 	public Cubeta(Point puntoActual, Color colorDeReemplazo, PanelDeDibujo panel) {
-
-		super(colorDeReemplazo);
 
 		lineas = new ArrayList<>();
 
@@ -215,13 +212,6 @@ public class Cubeta extends Figura {
 	public Cursor getCursor(Point p) {
 
 		return new Cursor(Cursor.CROSSHAIR_CURSOR);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

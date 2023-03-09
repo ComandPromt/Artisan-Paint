@@ -12,9 +12,7 @@ import util.Figura;
 public class RectanguloDividido extends Figura {
 	public RectanguloDividido(Point ubicacion, int anchura, int altura, Color color, boolean fanCircle) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -52,12 +50,6 @@ public class RectanguloDividido extends Figura {
 		g2.setStroke(new BasicStroke(getGrosor()));
 
 		g2.drawRect(x, y, anchura, altura);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
-		// TODO Auto-generated method stub
 
 	}
 

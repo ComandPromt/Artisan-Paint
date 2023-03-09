@@ -13,13 +13,8 @@ import util.Figura;
 
 public class Flor extends Figura {
 
-	private int grados = 0;
-
-	public Flor(Point ubicacion, int anchura, int altura, Color color) {
-
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+	public Flor(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor, boolean figuraRellena) {
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -36,6 +31,7 @@ public class Flor extends Figura {
 		getMarcoDeFigura().calcularDimensiones();
 
 		Graphics2D g2 = (Graphics2D) g;
+
 		int x = getMarcoDeFigura().getX();
 
 		int y = getMarcoDeFigura().getY();
@@ -47,7 +43,7 @@ public class Flor extends Figura {
 		g2.setStroke(new BasicStroke(getGrosor()));
 
 		g2.setColor(getColor());
-		
+
 		for (int i = 0; i < VentanaPrincipal.saberVueltas(); i++) {
 
 			g2.rotate(90, 200, 200);
@@ -60,11 +56,6 @@ public class Flor extends Figura {
 
 		}
 
-	}
-
-	@Override
-	public void rotar(int grados) {
-		this.grados = grados;
 	}
 
 }

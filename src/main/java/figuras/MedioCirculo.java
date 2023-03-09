@@ -11,13 +11,13 @@ import util.Figura;
 
 public class MedioCirculo extends Figura {
 
-	private int grados = 0;
+	
 
 	public MedioCirculo(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
+		
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 	}
 
 	@Override
@@ -62,12 +62,6 @@ public class MedioCirculo extends Figura {
 
 	}
 
-	@Override
 
-	public void rotar(int grados) {
-
-		this.grados = grados;
-
-	}
 
 }

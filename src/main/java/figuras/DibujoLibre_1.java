@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package figuras;
 
 import java.awt.BasicStroke;
@@ -19,13 +15,12 @@ public class DibujoLibre_1 extends Figura {
 
 	public boolean malla;
 
-	public DibujoLibre_1(Point ubicacion, int anchura, int altura, Color color, boolean fanCircle) {
+	public DibujoLibre_1(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+			boolean figuraRellena) {
 
-		super(color);
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
-
-		this.malla = fanCircle;
+		this.malla = figuraRellena;
 
 	}
 
@@ -46,6 +41,7 @@ public class DibujoLibre_1 extends Figura {
 		int x = getMarcoDeFigura().getX();
 
 		int y = getMarcoDeFigura().getY();
+
 		int anchura = getMarcoDeFigura().getAnchura();
 
 		int altura = getMarcoDeFigura().getAltura();
@@ -71,11 +67,6 @@ public class DibujoLibre_1 extends Figura {
 			}
 
 		}
-
-	}
-
-	@Override
-	public void rotar(int grados) {
 
 	}
 

@@ -12,13 +12,13 @@ import util.Figura;
 
 public class Trapecio extends Figura {
 
-	private int grados = 0;
+	
 
 	public Trapecio(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
+		
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -74,12 +74,6 @@ public class Trapecio extends Figura {
 
 	}
 
-	@Override
 
-	public void rotar(int grados) {
-
-		this.grados = grados;
-
-	}
 
 }

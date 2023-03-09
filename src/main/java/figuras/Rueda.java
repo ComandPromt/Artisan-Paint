@@ -18,8 +18,6 @@ public class Rueda extends Figura {
 
 	public Rueda(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor, boolean figuraRellena) {
 
-		super(color, backgroundColor, figuraRellena);
-
 		marco = new MarcoDeFigura(ubicacion, anchura, altura, false);
 
 		setMarcoDeFigura(marco);
@@ -98,11 +96,6 @@ public class Rueda extends Figura {
 	public static float fracToRad(int num, int denom) {
 
 		return (float) (((double) num) / ((double) denom) * 2 * Math.PI);
-
-	}
-
-	@Override
-	public void rotar(int grados) {
 
 	}
 

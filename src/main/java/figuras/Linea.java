@@ -16,7 +16,7 @@ public class Linea extends Figura {
 
 	public Linea(Point puntoInicial, Point puntoFinal, Color color) {
 
-		super(color);
+		
 
 		this.puntoInicial = puntoInicial;
 

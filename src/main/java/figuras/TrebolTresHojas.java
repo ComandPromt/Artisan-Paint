@@ -15,13 +15,9 @@ import util.Figura;
 
 public class TrebolTresHojas extends Figura {
 
-	private int grados = 0;
-
 	public TrebolTresHojas(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -102,12 +98,5 @@ public class TrebolTresHojas extends Figura {
 	 * y, anchura,altura,250,287);
 	 * 
 	 */
-
-	@Override
-	public void rotar(int grados) {
-
-		this.grados = grados;
-
-	}
 
 }

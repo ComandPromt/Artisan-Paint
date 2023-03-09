@@ -1,4 +1,4 @@
-package figuras;
+package figuras.estrellas;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -9,14 +9,12 @@ import java.awt.Point;
 import dibujante.MarcoDeFigura;
 import util.Figura;
 
-public class Estrella extends Figura {
+public class Star5P extends Figura {
 
 	Graphics2D g2;
-	private int grados = 0;
 
-	public Estrella(Point ubicacion, int anchura, int altura, Color color) {
-
-		super(color);
+	public Star5P(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+			boolean figuraRellena) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
@@ -89,14 +87,6 @@ public class Estrella extends Figura {
 		g2.setColor(getColor());
 
 		g2.drawPolygon(puntosX, puntosY, 10);
-
-	}
-
-	@Override
-
-	public void rotar(int grados) {
-
-		this.grados = grados;
 
 	}
 

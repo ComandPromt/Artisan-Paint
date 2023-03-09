@@ -29,12 +29,6 @@ public class Anillo extends Figura {
 	@Override
 	public void dibujar(Graphics g) {
 
-		if (VentanaPrincipal.verRegla.isSelected()) {
-
-			pintarRegla(g);
-
-		}
-
 		Graphics2D g2 = (Graphics2D) g;
 
 		getMarcoDeFigura().calcularDimensiones();
@@ -73,19 +67,53 @@ public class Anillo extends Figura {
 
 		}
 
+		if (dibujarRellena()) {
+
+			g2.setColor(getColorSecundario());
+
+			g2.fillOval(x, y, anchura, altura);
+
+		}
+
+		else {
+
+			g2.setColor(getColor());
+
+		}
+
 		g2.drawOval(x, y, anchura, altura);
 
 		for (int i = 0; i < getVueltas(); i++) {
 
-//			if (dibujarRellena()) {
-//
-//				g2.setColor(getColorSecundario());
-//
-//				g2.fillOval(x + incremento, y + incremento, anchura - incremento * 2, altura - incremento * 2);
-//
-//			}
+			if (dibujarRellena()) {
 
-			g2.drawOval(x + incremento, y + incremento, anchura - incremento * 2, altura - incremento * 2);
+				if (i % 2 == 0) {
+
+					g2.setColor(Color.WHITE);
+
+				}
+
+				else {
+
+					g2.setColor(getColorSecundario());
+
+				}
+
+				g2.fillOval(x + incremento, y + incremento, anchura - incremento * 2, altura - incremento * 2);
+
+				g2.setColor(getColor());
+
+				g2.drawOval(x + incremento, y + incremento, anchura - incremento * 2, altura - incremento * 2);
+
+			}
+
+			else {
+
+				g2.setColor(getColor());
+
+				g2.drawOval(x + incremento, y + incremento, anchura - incremento * 2, altura - incremento * 2);
+
+			}
 
 			incremento += 10;
 

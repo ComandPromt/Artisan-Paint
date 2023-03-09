@@ -18,8 +18,6 @@ public class Cadena extends Figura {
 	public Cadena(int figura, Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
 			boolean figuraRellena) {
 
-		super(color, backgroundColor, figuraRellena);
-
 		this.figura = figura;
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));

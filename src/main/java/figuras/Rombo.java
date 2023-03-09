@@ -11,13 +11,9 @@ import util.Figura;
 
 public class Rombo extends Figura {
 
-	private int grados = 0;
-
 	public Rombo(Point ubicacion, int anchura, int altura, Color color) {
 
-		super(color);
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
 	}
 
@@ -72,11 +68,4 @@ public class Rombo extends Figura {
 		g2.drawPolygon(puntosX, puntosY, 4);
 
 	}
-
-	public void rotar(int grados) {
-
-		this.grados = grados;
-
-	}
-
 }

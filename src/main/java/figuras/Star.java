@@ -4,12 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.RadialGradientPaint;
 import java.awt.Shape;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 
+import dibujante.VentanaPrincipal;
 import util.Figura;
 
 public class Star extends Figura {
@@ -94,9 +94,8 @@ public class Star extends Figura {
 		return path;
 	}
 
-	public Star(int type) {
-
-		this.tipo = type;
+	public Star(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor, boolean figuraRellena) {
+		this.tipo = 0;
 
 	}
 
@@ -115,11 +114,19 @@ public class Star extends Figura {
 
 			int y = getMarcoDeFigura().getY();
 
+			int anchura = getMarcoDeFigura().getAnchura();
+
+			int altura = getMarcoDeFigura().getAltura();
+
+			int centerX = anchura / 2;
+
+			int centerY = altura / 2;
+
 			switch (this.tipo) {
 
 			case 1:
 
-				double radius = 90 * Fenetre.cm.getValor();
+				double radius = 90 * centerX;
 
 				int STAR_POINTS = 10;
 
@@ -151,9 +158,9 @@ public class Star extends Figura {
 
 			case 3:
 
-				int x = 56;
+				x = 56;
 
-				int y = 0;
+				y = 0;
 
 				int[] xPoints = { x, x + 12, x + 54, x + 18, x + 28, x, x - 28, x - 18, x - 54, x - 12 };
 
@@ -173,29 +180,29 @@ public class Star extends Figura {
 
 				for (int count = 1; count <= 20; count++) {
 
-					g2d.rotate(Math.PI / 10.0);
+					g2.rotate(Math.PI / 10.0);
 
-					g2d.setColor(PanneauChoix.couleur.getColor());
+					g2.setColor(VentanaPrincipal.color1.getColor());
 
-					g2d.draw(star);
+					g2.draw(star);
 
 				}
 
-				g2d.translate(0, 0);
+				g2.translate(0, 0);
 
 				break;
 
 			case 0:
 
-				float witdh = (float) 75 * Fenetre.cm.getValor();
+				float witdh = (float) 75 * centerX;
 
-				float height = witdh - (float) 50 * Fenetre.cm.getValor();
+				float height = witdh - (float) 50 * centerY;
 
-				Point2D.Float point = new Point2D.Float(p2.getX(), p2.getY());
+				Point2D.Float point = new Point2D.Float((float) p2.getX(), (float) p2.getY());
 
 				GeneralPath p = new GeneralPath(GeneralPath.WIND_NON_ZERO);
 
-				point.x = centerX - (100 * Fenetre.cm.getValor());
+				point.x = centerX - 100;
 
 				p.moveTo(point.x, point.y);
 
@@ -227,9 +234,9 @@ public class Star extends Figura {
 
 				p.closePath();
 
-				g2d.draw(p);
+				g2.draw(p);
 
-				g2d.translate(0, 0);
+				g2.translate(0, 0);
 
 				break;
 
@@ -262,24 +269,23 @@ public class Star extends Figura {
 				break;
 
 			case 4:
-
-				if (PanneauChoix.thin.isSelected()) {
-
-					g2d.setPaint(new RadialGradientPaint(new Point2D.Double(400, 200), 60, new float[] { 0, 1 },
-							new Color[] { color, color }));
-
-					pintarEstrella(g2d, 20, 60, 8, 0);
-				}
-
-				else {
-
-					g2d.setPaint(new RadialGradientPaint(new Point2D.Double(200, 400), 50, new float[] { 0, 0.3f, 1 },
-							new Color[] { color, color, color }));
-
-					pintarEstrella(g2d, 40, 50, 20, 0);
-
-				}
-
+				/*
+				 * if (PanneauChoix.thin.isSelected()) {
+				 * 
+				 * g2.setPaint(new RadialGradientPaint(new Point2D.Double(400, 200), 60, new
+				 * float[] { 0, 1 }, new Color[] { color, color }));
+				 * 
+				 * pintarEstrella(g2, 20, 60, 8, 0); }
+				 * 
+				 * else {
+				 * 
+				 * g2.setPaint(new RadialGradientPaint(new Point2D.Double(200, 400), 50, new
+				 * float[] { 0, 0.3f, 1 }, new Color[] { color, color, color }));
+				 * 
+				 * pintarEstrella(g2, 40, 50, 20, 0);
+				 * 
+				 * }
+				 */
 				break;
 
 			}
@@ -293,25 +299,7 @@ public class Star extends Figura {
 
 	private void pintarEstrella(Graphics2D g, int i, int j, int k, int l) {
 
-		if (!Fenetre.defaultShape.isSelected() && Fenetre.r1.getValor() > 1 && Fenetre.r2.getValor() > 1
-				&& Fenetre.tip.getValor() > 2) {
-
-			g.draw(createStar(p2.getX(), p2.getY(), Fenetre.r1.getValor(), Fenetre.r2.getValor(),
-					Fenetre.tip.getValor(), 0));
-
-		}
-
-		else {
-
-			Fenetre.r1.setValor(i);
-
-			Fenetre.r2.setValor(j);
-
-			Fenetre.tip.setValor(k);
-
-			g.draw(createStar(p2.getX(), p2.getY(), i, j, k, l));
-
-		}
+		g.draw(createStar(p2.getX(), p2.getY(), i, j, k, l));
 
 	}
 
@@ -323,4 +311,5 @@ public class Star extends Figura {
 		// TODO Auto-generated method stub
 
 	}
+
 }
