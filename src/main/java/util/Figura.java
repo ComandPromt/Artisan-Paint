@@ -267,7 +267,7 @@ public abstract class Figura {
 
 		figura.dibujar(g);
 
-		VentanaPrincipal.getPanelDeDibujo().setFiguraActual(figura);
+		VentanaPrincipal.panelDeDibujo.setFiguraActual(figura);
 
 	}
 
