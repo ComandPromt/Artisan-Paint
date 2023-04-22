@@ -11,7 +11,6 @@ import java.awt.Point;
 import java.awt.Toolkit;
 
 import dibujante.MarcoDeFigura;
-import dibujante.VentanaPrincipal;
 
 public abstract class Figura {
 
@@ -29,6 +28,8 @@ public abstract class Figura {
 
 	protected int escala;
 
+	protected int angulo;
+
 	protected int radio;
 
 	protected int moverArriba;
@@ -36,6 +37,118 @@ public abstract class Figura {
 	protected int moverAbajo;
 
 	private Estado estadoActual;
+
+	private boolean giro;
+
+	private boolean redondear;
+
+	private short estadoGiro;
+
+	protected int angulo2;
+
+	protected int angulo3;
+
+	protected int angulo4;
+
+	protected int angulo5;
+
+	protected int sumarAngulo;
+
+	protected void setDefaultMoverAbajo() {
+
+		if (getMoverAbajo() == 0) {
+
+			setMoverAbajo(10);
+
+		}
+
+	}
+
+	public boolean isRedondear() {
+		return redondear;
+	}
+
+	public void setRedondear(boolean redondear) {
+		this.redondear = redondear;
+	}
+
+	public int getSumarAngulo() {
+
+		return sumarAngulo;
+
+	}
+
+	public void setSumarAngulo(int sumarAngulo) {
+		this.sumarAngulo = sumarAngulo;
+	}
+
+	public int getAngulo5() {
+		return angulo5;
+	}
+
+	public void setAngulo5(int angulo5) {
+		this.angulo5 = angulo5;
+	}
+
+	public int getAngulo2() {
+		return angulo2;
+	}
+
+	public void setAngulo2(int angulo2) {
+		this.angulo2 = angulo2;
+	}
+
+	public int getAngulo3() {
+		return angulo3;
+	}
+
+	public void setAngulo3(int angulo3) {
+		this.angulo3 = angulo3;
+	}
+
+	public int getAngulo4() {
+		return angulo4;
+	}
+
+	public void setAngulo4(int angulo4) {
+		this.angulo4 = angulo4;
+	}
+
+	public int getAngulo() {
+
+		return angulo;
+
+	}
+
+	public void setAngulo(int angulo) {
+
+		this.angulo = angulo;
+
+	}
+
+	public short getEstadoGiro() {
+
+		return estadoGiro;
+
+	}
+
+	public void setEstadoGiro(short estadoGiro) {
+
+		this.estadoGiro = estadoGiro;
+
+	}
+
+	public boolean isGiro() {
+
+		return giro;
+
+	}
+
+	public void setGiro(boolean giro) {
+
+		this.giro = giro;
+
+	}
 
 	public int getWidth() {
 
@@ -121,7 +234,7 @@ public abstract class Figura {
 
 	public int getRadio() {
 
-		return (radio > 0) ? radio : 1;
+		return this.radio;
 
 	}
 
@@ -225,7 +338,7 @@ public abstract class Figura {
 
 		g2.setStroke(new BasicStroke(1));
 
-		g2.setColor(getColor());
+		g2.setColor(Color.BLACK);
 
 		g.fillRect(10, 10, 4, 4);
 
@@ -256,18 +369,6 @@ public abstract class Figura {
 	public void setDibujarRellena(boolean dibujarRellena) {
 
 		this.dibujarRellena = dibujarRellena;
-
-	}
-
-	public void rotar(Graphics g, Figura figura, int i, int width, int height) {
-
-		Graphics2D g2 = (Graphics2D) g;
-
-		g2.rotate(Math.toRadians(i), width, height);
-
-		figura.dibujar(g);
-
-		VentanaPrincipal.panelDeDibujo.setFiguraActual(figura);
 
 	}
 
