@@ -413,4 +413,12 @@ public class MarcoDeFigura {
 				&& p.y <= y + getAltura());
 	}
 
+	public void setAnchura(int anchura) {
+		this.anchura = anchura;
+	}
+
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+
 }

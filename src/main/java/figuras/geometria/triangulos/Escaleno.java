@@ -1,5 +1,5 @@
 
-package figuras.flechas;
+package figuras.geometria.triangulos;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -10,18 +10,17 @@ import java.awt.Point;
 import dibujante.MarcoDeFigura;
 import util.Figura;
 
-public class FlechaDerecha extends Figura {
+public class Escaleno extends Figura {
 
-	public FlechaDerecha(Point ubicacion, int anchura, int altura,
+	public Escaleno(Point ubicacion, int anchura, int altura,
 			boolean figuraRellena) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
-		super.setGiro(true);
-
 	}
 
 	@Override
+
 	public void actualizar(Point puntoActual) {
 
 		getMarcoDeFigura().actualizarDimensiones(puntoActual);
@@ -29,6 +28,7 @@ public class FlechaDerecha extends Figura {
 	}
 
 	@Override
+
 	public void dibujar(Graphics g) {
 
 		getMarcoDeFigura().calcularDimensiones();
@@ -43,31 +43,21 @@ public class FlechaDerecha extends Figura {
 
 		int altura = getMarcoDeFigura().getAltura();
 
-		int separacion = altura / (4);
+		Point punto1 = new Point(x, y);
 
-		Point punto1 = new Point(x + anchura / 2, y);
+		Point punto2 = new Point(x + (anchura / 6), y + altura);
 
-		Point punto2 = new Point(x + anchura, y + altura / 2);
+		Point punto3 = new Point(x + anchura, y + altura);
 
-		Point punto3 = new Point(x + anchura / 2, y + altura);
+		int[] puntosX = { punto1.x, punto2.x, punto3.x };
 
-		Point punto4 = new Point(x + anchura / 2, y + altura - separacion);
-
-		Point punto5 = new Point(x, y + altura - separacion);
-
-		Point punto6 = new Point(x, y + separacion);
-
-		Point punto7 = new Point(x + anchura / 2, y + separacion);
-
-		int[] puntosX = new int[] { punto1.x, punto2.x, punto3.x, punto4.x, punto5.x, punto6.x, punto7.x };
-
-		int[] puntosY = new int[] { punto1.y, punto2.y, punto3.y, punto4.y, punto5.y, punto6.y, punto7.y };
+		int[] puntosY = { punto1.y, punto3.y, punto3.y };
 
 		if (dibujarRellena()) {
 
 			g2.setColor(getColorSecundario());
 
-			g2.fillPolygon(puntosX, puntosY, 7);
+			g2.fillPolygon(puntosX, puntosY, 3);
 
 		}
 
@@ -75,7 +65,7 @@ public class FlechaDerecha extends Figura {
 
 		g2.setColor(getColor());
 
-		g2.drawPolygon(puntosX, puntosY, 7);
+		g2.drawPolygon(puntosX, puntosY, 3);
 
 	}
 

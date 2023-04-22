@@ -121,7 +121,7 @@ public class DavidStar extends Figura {
 
 	}
 
-	public DavidStar(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+	public DavidStar(Point ubicacion, int anchura, int altura,
 			boolean figuraRellena) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));

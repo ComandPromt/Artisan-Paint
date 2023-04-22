@@ -30,8 +30,6 @@ public class PanelDeDibujo extends JPanel {
 
 	private int grosor;
 
-	private boolean dibujarRellena;
-
 	private VentanaPrincipal ventanaPrincipal;
 
 	private int figuraSeleccionada;
@@ -47,8 +45,6 @@ public class PanelDeDibujo extends JPanel {
 		figuras = new ArrayList<>();
 
 		grosor = 1;
-
-		dibujarRellena = false;
 
 		figurasDeshechas = new Stack<>();
 
@@ -66,8 +62,6 @@ public class PanelDeDibujo extends JPanel {
 
 					colorSecundarioActual = VentanaPrincipal.color2.getColor();
 
-					dibujarRellena = ventanaPrincipal.getSiseDibujaraRellena();
-
 					grosor = ventanaPrincipal.getGrosorSeleccionado();
 
 					if (figuraActual != null && figuraActual.contiene(evento.getPoint())) {
@@ -80,14 +74,7 @@ public class PanelDeDibujo extends JPanel {
 
 					}
 
-					if (figuraSeleccionada == -1) {
-
-						colorActual = ventanaPrincipal.obtenerColorEn(evento.getPoint());
-
-						return;
-					}
-
-					if (VentanaPrincipal.subTipoFigura.getItemCount() > 0
+					if (figuraSeleccionada >= 0 && VentanaPrincipal.subTipoFigura.getItemCount() > 0
 							&& VentanaPrincipal.subTipoFigura.getSelectedIndex() > 0) {
 
 						try {
@@ -105,14 +92,18 @@ public class PanelDeDibujo extends JPanel {
 					figuraActual = ventanaPrincipal.figuraADibujarse(figuraSeleccionada, evento.getPoint(), 0, 0,
 							colorActual, colorSecundarioActual);
 
-					figuraActual.setGrosor(grosor);
+					if (figuraActual != null) {
 
-					figuras.add(figuraActual);
+						figuraActual.setGrosor(grosor);
+
+						figuras.add(figuraActual);
+
+					}
 
 				}
 
 				catch (Exception e) {
-
+					e.printStackTrace();
 				}
 
 			}

@@ -12,10 +12,12 @@ import util.Figura;
 
 public class FlechaAbajo extends Figura {
 
-	public FlechaAbajo(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+	public FlechaAbajo(Point ubicacion, int anchura, int altura,
 			boolean figuraRellena) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+
+		super.setGiro(true);
 
 	}
 
@@ -74,8 +76,6 @@ public class FlechaAbajo extends Figura {
 		g2.setColor(getColor());
 
 		g2.drawPolygon(puntosX, puntosY, 7);
-
-		g2.rotate(Math.toRadians(30), x + (anchura / 2), y + (altura / 2));
 
 	}
 

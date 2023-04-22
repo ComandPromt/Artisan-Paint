@@ -1,11 +1,12 @@
 package figuras;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 
-import dibujante.VentanaPrincipal;
 import util.Figura;
 
 public class Linea extends Figura {
@@ -14,34 +15,39 @@ public class Linea extends Figura {
 
 	Point puntoFinal;
 
-	public Linea(Point puntoInicial, Point puntoFinal, Color color) {
+	int grosor;
 
-		
+	public Linea(Point puntoInicial, Point puntoFinal, Color color, int grosor) {
 
 		this.puntoInicial = puntoInicial;
 
 		this.puntoFinal = puntoFinal;
 
+		this.grosor = grosor;
+
 	}
 
+	@Override
 	public void actualizar(Point puntoActual) {
 
 		this.puntoFinal = puntoActual;
 
 	}
 
+	@Override
 	public void dibujar(Graphics g) {
 
-		if (VentanaPrincipal.verRegla.isSelected()) {
+		Graphics2D g2 = (Graphics2D) g;
 
-			pintarRegla(g);
+		g2.setStroke(new BasicStroke(this.grosor));
 
-		}
+		g2.setColor(getColor());
 
-		g.drawLine(puntoInicial.x, puntoInicial.y, puntoFinal.x, puntoFinal.y);
+		g2.drawLine(puntoInicial.x, puntoInicial.y, puntoFinal.x, puntoFinal.y);
 
 	}
 
+	@Override
 	public void dibujarMarcoDeSeleccion(Graphics g) {
 
 	}
@@ -58,10 +64,6 @@ public class Linea extends Figura {
 	public Cursor getCursor(Point p) {
 
 		return new Cursor(Cursor.CROSSHAIR_CURSOR);
-
-	}
-
-	public void rotar(int grados) {
 
 	}
 

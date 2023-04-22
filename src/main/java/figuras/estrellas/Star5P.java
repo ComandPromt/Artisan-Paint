@@ -13,7 +13,7 @@ public class Star5P extends Figura {
 
 	Graphics2D g2;
 
-	public Star5P(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
+	public Star5P(Point ubicacion, int anchura, int altura,
 			boolean figuraRellena) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));

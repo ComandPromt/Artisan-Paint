@@ -2,7 +2,6 @@
 package figuras.geometria;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -17,10 +16,9 @@ public class Poligono extends Figura {
 
 	private static double halfPI = Math.PI / 2.0;
 
-	public Poligono(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
-			boolean figuraRellena) {
+	public Poligono(Point ubicacion, int anchura, int altura) {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
 
 	}
 

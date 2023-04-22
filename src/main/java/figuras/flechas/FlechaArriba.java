@@ -2,7 +2,6 @@
 package figuras.flechas;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -12,10 +11,15 @@ import util.Figura;
 
 public class FlechaArriba extends Figura {
 
-	public FlechaArriba(Point ubicacion, int anchura, int altura, Color color, Color backgroundColor,
-			boolean figuraRellena) {
+	Point ubicacion;
+
+	public FlechaArriba(Point ubicacion, int anchura, int altura) {
+
+		this.ubicacion = ubicacion;
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+
+		super.setGiro(true);
 
 	}
 
