@@ -10,7 +10,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import dibujante.VentanaPrincipal;
-import figuras.Linea;
+import figuras.basicas.Linea;
 import util.Figura;
 
 public class DibujoLibre extends Figura {

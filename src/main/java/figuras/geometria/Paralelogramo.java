@@ -1,7 +1,7 @@
-package figuras;
+
+package figuras.geometria;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -9,9 +9,9 @@ import java.awt.Point;
 import dibujante.MarcoDeFigura;
 import util.Figura;
 
-public class Hexagono extends Figura {
+public class Paralelogramo extends Figura {
 
-	public Hexagono(Point ubicacion, int anchura, int altura, Color color) {
+	public Paralelogramo(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
@@ -41,27 +41,23 @@ public class Hexagono extends Figura {
 
 		int altura = getMarcoDeFigura().getAltura();
 
-		Point punto1 = new Point(x + anchura / 2, y);
+		Point punto1 = new Point(x + anchura - (int) (anchura / (16.0 / 13.0)), y);
 
-		Point punto2 = new Point(x + anchura, y + (int) (altura / (6.0 / 1.5)));
+		Point punto2 = new Point(x + (anchura), y);
 
-		Point punto3 = new Point(x + anchura, y + altura - (int) (altura / (6.0 / 1.5)));
+		Point punto3 = new Point(x + (int) (anchura / (16.0 / 13.0)), y + altura);
 
-		Point punto4 = new Point(x + anchura / 2, y + altura);
+		Point punto4 = new Point(x, y + altura);
 
-		Point punto5 = new Point(x, y + altura - (int) (altura / (6.0 / 1.5)));
+		int[] puntosX = { punto1.x, punto2.x, punto3.x, punto4.x };
 
-		Point punto6 = new Point(x, y + (int) (altura / (6.0 / 1.5)));
-
-		int[] puntosX = { punto1.x, punto2.x, punto3.x, punto4.x, punto5.x, punto6.x };
-
-		int[] puntosY = { punto1.y, punto2.y, punto3.y, punto4.y, punto5.y, punto6.y };
+		int[] puntosY = { punto1.y, punto2.y, punto3.y, punto4.y };
 
 		if (dibujarRellena()) {
 
 			g2.setColor(getColorSecundario());
 
-			g2.fillPolygon(puntosX, puntosY, 6);
+			g2.fillPolygon(puntosX, puntosY, 4);
 
 		}
 
@@ -69,7 +65,7 @@ public class Hexagono extends Figura {
 
 		g2.setColor(getColor());
 
-		g2.drawPolygon(puntosX, puntosY, 6);
+		g2.drawPolygon(puntosX, puntosY, 4);
 
 	}
 

@@ -40,6 +40,10 @@ public class Rectangulo extends Figura {
 
 		int altura = getMarcoDeFigura().getAltura();
 
+		g2.setColor(getColor());
+
+		g2.setStroke(new BasicStroke(getGrosor()));
+
 		if (!isRedondear() && dibujarRellena()) {
 
 			g2.setColor(getColorSecundario());
@@ -47,10 +51,6 @@ public class Rectangulo extends Figura {
 			g2.fillRect(x, y, anchura, altura);
 
 		}
-
-		g2.setColor(getColor());
-
-		g2.setStroke(new BasicStroke(getGrosor()));
 
 		if (isRedondear()) {
 

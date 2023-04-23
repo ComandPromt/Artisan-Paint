@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Queue;
 
 import dibujante.PanelDeDibujo;
-import figuras.Linea;
+import figuras.basicas.Linea;
 import util.Figura;
 
 public class Cubeta extends Figura {
@@ -81,7 +81,7 @@ public class Cubeta extends Figura {
 
 				queue.add(new Point(p.x + 1, p.y));
 
-				lineas.add(new Linea(p, p, getColor(), getGrosor()));
+				lineas.add(new Linea(p, p, getColor()));
 
 			}
 

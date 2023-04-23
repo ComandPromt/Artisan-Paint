@@ -1,4 +1,4 @@
-package figuras.basicas;
+package figuras.simbolos;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics;

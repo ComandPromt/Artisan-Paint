@@ -1,7 +1,6 @@
-package figuras;
+package figuras.simbolos;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -13,13 +12,9 @@ public class Cruz extends Figura {
 
 	MarcoDeFigura marcoDeLaFigura;
 
-	
+	public Cruz(Point ubicacion, int anchura, int altura) {
 
-	public Cruz(Point ubicacion, int anchura, int altura, Color color) {
-
-		
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
 
 	}
 
@@ -47,9 +42,9 @@ public class Cruz extends Figura {
 
 		int altura = getMarcoDeFigura().getAltura();
 
-		int separacionX = (int) (anchura / 3);
+		int separacionX = anchura / 3;
 
-		int separacionY = (int) (altura / 3);
+		int separacionY = altura / 3;
 
 		Point punto1 = new Point(x + separacionX, y);
 
@@ -96,7 +91,5 @@ public class Cruz extends Figura {
 		g2.drawPolygon(puntosX, puntosY, 12);
 
 	}
-
-
 
 }

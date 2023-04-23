@@ -48,7 +48,7 @@ import com.spinner.simple.Spinner;
 
 import checkbox.CheckBoxLabel;
 import efectos.Cadena;
-import figuras.circulos.Circulo;
+import figuras.geometria.Rectangulo;
 import figuras.utils.Borrador;
 import figuras.utils.Cubeta;
 import figuras.utils.Imagen;
@@ -316,7 +316,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			// figuraActual = new Cadena(3, puntoActual, anchura, altura);
 
-			figuraActual = new Circulo(puntoActual, anchura, altura);
+			figuraActual = new Rectangulo(puntoActual, anchura, altura);
 
 			break;
 
@@ -945,6 +945,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			JLabel jLabel9 = new JLabel();
 
 			anguloGiro = new Spinner();
+
 			anguloGiro.setNegativo(true);
 
 			anguloGiro.setLabelText("Angle");
@@ -992,6 +993,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			jLabel9_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/angle.png")));
 
 			JLabel jLabel2_1 = new JLabel();
+
 			jLabel2_1.setHorizontalAlignment(SwingConstants.CENTER);
 
 			jLabel2_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/move_top.png")));
@@ -1127,7 +1129,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			});
 
-			btn23_1_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/cubeta.png")));
+			btn23_1_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/lapiz.png")));
 			btn23_1_1.setToolTipText("Gotero");
 			btn23_1_1.setPreferredSize(new Dimension(37, 30));
 			btn23_1_1.setOpaque(true);

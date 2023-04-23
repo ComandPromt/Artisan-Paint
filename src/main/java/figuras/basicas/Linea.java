@@ -1,4 +1,4 @@
-package figuras;
+package figuras.basicas;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -15,15 +15,11 @@ public class Linea extends Figura {
 
 	Point puntoFinal;
 
-	int grosor;
-
-	public Linea(Point puntoInicial, Point puntoFinal, Color color, int grosor) {
+	public Linea(Point puntoInicial, Point puntoFinal, Color color) {
 
 		this.puntoInicial = puntoInicial;
 
 		this.puntoFinal = puntoFinal;
-
-		this.grosor = grosor;
 
 	}
 
@@ -39,7 +35,7 @@ public class Linea extends Figura {
 
 		Graphics2D g2 = (Graphics2D) g;
 
-		g2.setStroke(new BasicStroke(this.grosor));
+		g2.setStroke(new BasicStroke(getGrosor()));
 
 		g2.setColor(getColor());
 

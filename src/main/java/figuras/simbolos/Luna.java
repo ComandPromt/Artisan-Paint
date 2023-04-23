@@ -1,8 +1,7 @@
 
-package figuras;
+package figuras.simbolos;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -15,7 +14,7 @@ import util.Figura;
 
 public class Luna extends Figura {
 
-	public Luna(Point ubicacion, int anchura, int altura, Color color) {
+	public Luna(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
