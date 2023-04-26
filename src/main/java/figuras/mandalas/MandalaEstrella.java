@@ -8,7 +8,7 @@ import java.awt.Point;
 import java.awt.geom.GeneralPath;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class MandalaEstrella extends Figura {
 

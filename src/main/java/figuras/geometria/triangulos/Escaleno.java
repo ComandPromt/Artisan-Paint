@@ -2,18 +2,16 @@
 package figuras.geometria.triangulos;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Escaleno extends Figura {
 
-	public Escaleno(Point ubicacion, int anchura, int altura,
-			boolean figuraRellena) {
+	public Escaleno(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 

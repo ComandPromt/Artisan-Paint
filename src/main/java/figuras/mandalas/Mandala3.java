@@ -13,7 +13,7 @@ import java.awt.geom.GeneralPath;
 
 import dibujante.MarcoDeFigura;
 import dibujante.VentanaPrincipal;
-import util.Figura;
+import dibujante.Figura;
 
 public class Mandala3 extends Figura {
 

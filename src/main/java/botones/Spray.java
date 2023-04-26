@@ -12,7 +12,9 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class Spray extends DibujoLibre {
+import figuras.utils.Lapiz;
+
+public class Spray extends Lapiz {
 
 	public double raio;
 
@@ -26,7 +28,7 @@ public class Spray extends DibujoLibre {
 
 	public Spray(Point puntoInicial, Color color) {
 
-		super(puntoInicial, Color.WHITE);
+		super(puntoInicial);
 
 		this.color = color;
 

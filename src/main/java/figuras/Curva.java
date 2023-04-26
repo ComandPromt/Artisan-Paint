@@ -11,7 +11,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.geom.Path2D;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Curva extends Figura {
 	float x1, y1, xc1cur, yc1cur, xc1new, yc1new, xc2cur, yc2cur, xc2new, yc2new, x4cur, y4cur, x4new, y4new;

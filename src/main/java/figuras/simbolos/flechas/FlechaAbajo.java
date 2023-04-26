@@ -1,4 +1,5 @@
-package figuras.flechas;
+
+package figuras.simbolos.flechas;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics;
@@ -6,11 +7,11 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
-public class FlechaIzquierda extends Figura {
+public class FlechaAbajo extends Figura {
 
-	public FlechaIzquierda(Point ubicacion, int anchura, int altura) {
+	public FlechaAbajo(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
@@ -40,21 +41,21 @@ public class FlechaIzquierda extends Figura {
 
 		int altura = getMarcoDeFigura().getAltura();
 
-		int separacion = altura / (4);
+		int separacion = anchura / (4);
 
-		Point punto1 = new Point(x + anchura / 2, y);
+		Point punto1 = new Point(x + anchura / 2, y + altura);
 
 		Point punto2 = new Point(x, y + altura / 2);
 
-		Point punto3 = new Point(x + anchura / 2, y + altura);
+		Point punto3 = new Point(x + separacion, y + altura / 2);
 
-		Point punto4 = new Point(x + anchura / 2, y + altura - separacion);
+		Point punto4 = new Point(x + separacion, y);
 
-		Point punto5 = new Point(x + anchura, y + altura - separacion);
+		Point punto5 = new Point(x + anchura - separacion, y);
 
-		Point punto6 = new Point(x + anchura, y + separacion);
+		Point punto6 = new Point(x + anchura - separacion, y + altura / 2);
 
-		Point punto7 = new Point(x + anchura / 2, y + separacion);
+		Point punto7 = new Point(x + anchura, y + altura / 2);
 
 		int[] puntosX = new int[] { punto1.x, punto2.x, punto3.x, punto4.x, punto5.x, punto6.x, punto7.x };
 

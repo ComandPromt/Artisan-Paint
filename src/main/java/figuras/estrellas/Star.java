@@ -8,7 +8,7 @@ import java.awt.Shape;
 import java.awt.geom.Path2D;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Star extends Figura {
 

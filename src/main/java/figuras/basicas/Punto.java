@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.LinkedList;
 
-import util.Figura;
+import dibujante.Figura;
 
 public class Punto extends Figura {
 

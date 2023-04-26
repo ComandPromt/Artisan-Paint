@@ -7,8 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import figuras.basicas.Linea;
-import util.Figura;
+import dibujante.Figura;
 
 public class Lapiz extends Figura {
 
@@ -59,7 +58,7 @@ public class Lapiz extends Figura {
 
 		for (int i = 1; i < puntos.size(); i++) {
 
-			Linea lineaActual = new Linea(puntos.get(i - 1), puntos.get(i), getColor());
+			Linea lineaActual = new Linea(puntos.get(i - 1), puntos.get(i));
 
 			lineaActual.dibujar(g2);
 

@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -30,10 +32,12 @@ import javax.swing.JColorChooser;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -48,15 +52,69 @@ import com.spinner.simple.Spinner;
 
 import checkbox.CheckBoxLabel;
 import efectos.Cadena;
+import figuras.basicas.Line;
+import figuras.basicas.Punto;
+import figuras.circulos.Anillo;
+import figuras.circulos.Circulo;
+import figuras.circulos.MedioCirculo;
+import figuras.circulos.Rueda;
+import figuras.circulos.SemiCirculo;
+import figuras.dibujos.DibujoLibre1;
+import figuras.dibujos.DibujoLibre2;
+import figuras.dibujos.DibujoLibre3;
+import figuras.dibujos.DibujoLibre4;
+import figuras.dibujos.DibujoLibre5;
+import figuras.dibujos.DibujoLibre6;
+import figuras.dibujos.DibujoLibre7;
+import figuras.estrellas.DavidStar;
+import figuras.estrellas.Star;
+import figuras.estrellas.Star5P;
+import figuras.feria.AroFeria;
+import figuras.geometria.Cilindro;
+import figuras.geometria.Cuadrado;
+import figuras.geometria.Hexagono;
+import figuras.geometria.Octogono;
+import figuras.geometria.Paralelogramo;
+import figuras.geometria.Pentagono;
+import figuras.geometria.Poligono;
 import figuras.geometria.Rectangulo;
+import figuras.geometria.Rombo;
+import figuras.geometria.Trapecio;
+import figuras.geometria.triangulos.Escaleno;
+import figuras.geometria.triangulos.Triangulo;
+import figuras.geometria.triangulos.TrianguloRectangulo;
+import figuras.geometria.triangulos.TrianguloRectangulo1;
+import figuras.geometria.triangulos.TrianguloRectangulo2;
+import figuras.geometria.triangulos.TrianguloRectangulo3;
+import figuras.juegos.Cometa;
+import figuras.juegos.PacMan;
+import figuras.mandalas.Mandala1;
+import figuras.mandalas.Mandala2;
+import figuras.mandalas.Mandala3;
+import figuras.mandalas.Mandala4;
+import figuras.mandalas.Mandala5;
+import figuras.mandalas.Mandala6;
+import figuras.mandalas.MandalaCirculo;
+import figuras.mandalas.MandalaEstrella;
+import figuras.plantas.Trebol;
+import figuras.plantas.TrebolCuatroHojas;
+import figuras.plantas.TrebolTresHojas;
+import figuras.simbolos.Carta;
+import figuras.simbolos.Carta2;
+import figuras.simbolos.Corazon;
+import figuras.simbolos.Cruz;
+import figuras.simbolos.Luna;
+import figuras.simbolos.YingYang;
+import figuras.simbolos.flechas.FlechaAbajo;
+import figuras.simbolos.flechas.FlechaArriba;
+import figuras.simbolos.flechas.FlechaDerecha;
+import figuras.simbolos.flechas.FlechaIzquierda;
 import figuras.utils.Borrador;
-import figuras.utils.Cubeta;
 import figuras.utils.Imagen;
 import figuras.utils.Lapiz;
 import figuras.utils.Spray;
 import net.java.dev.colorchooser.demo.CopyColor;
 import util.Board;
-import util.Figura;
 import util.Metodos;
 
 @SuppressWarnings("all")
@@ -68,8 +126,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 	private int idCategoria;
 
 	private int idIdioma;
-
-	private boolean regla;
 
 	public static Spinner moverArriba;
 
@@ -91,7 +147,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	public static Spinner moverAbajo;
 
-	public static CheckBoxLabel verRegla;
+	public static CheckBoxLabel verPuntos;
 
 	private JTextField textField_1;
 
@@ -105,7 +161,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	public static ComboBoxSuggestion efectoFigura;
 
-	ComboBoxSuggestion nombreFigura;
+	public static ComboBoxSuggestion nombreFigura;
 
 	private int indice;
 
@@ -116,8 +172,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 	LinkedList<String> efectosFiguras;
 
 	public static Spinner anguloGiro;
-
-	CheckBoxLabel malla;
 
 	public static CheckBoxLabel redondear;
 
@@ -135,7 +189,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private Spinner sumarAngulo;
 
-	private ComboBoxLanguage comboBox;
+	public static ComboBoxLanguage comboBox;
+	private JMenu mnNewMenu;
+	private JMenuItem mntmNewMenuItem;
+	private JMenuItem mntmNewMenuItem_1;
 
 	private void girarFigura(boolean giroHorario) {
 
@@ -203,8 +260,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		vistaFigura.setBackground(Color.WHITE);
 
-		regla = false;
-
 		orientacion = new JLabel("");
 
 		gradosFigura = 1;
@@ -218,16 +273,55 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 		setTitle("Test");
 
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(Color.WHITE);
 
 		setJMenuBar(menuBar);
 
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
+		mnNewMenu = new JMenu("Menu");
+		mnNewMenu.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/menu.png")));
+		mnNewMenu.setBackground(Color.WHITE);
 
-		menuBar.add(mntmNewMenuItem_1);
+		menuBar.add(mnNewMenu);
 
-		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
+		mntmNewMenuItem = new JMenuItem("Export");
+		mntmNewMenuItem.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/export.png")));
+		mntmNewMenuItem.setBackground(Color.WHITE);
 
-		menuBar.add(mntmNewMenuItem);
+		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
+
+			@Override
+
+			public void mousePressed(MouseEvent e) {
+
+				guardarImagen();
+
+			}
+
+		});
+
+		mntmNewMenuItem_1 = new JMenuItem("New");
+		mntmNewMenuItem_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/new.png")));
+
+		mntmNewMenuItem_1.addMouseListener(new MouseAdapter() {
+			@Override
+
+			public void mousePressed(MouseEvent e) {
+
+				funcionBtnNuevo();
+
+			}
+
+		});
+
+		mntmNewMenuItem_1.setBackground(Color.WHITE);
+
+		mnNewMenu.add(mntmNewMenuItem_1);
+
+		JSeparator separator = new JSeparator();
+
+		mnNewMenu.add(separator);
+
+		mnNewMenu.add(mntmNewMenuItem);
 
 		initComponents();
 
@@ -285,6 +379,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			color1.setColor(colorPrimario);
 
 		}
+		System.out.println("figura: " + figuraSeleccionada);
 
 		switch (figuraSeleccionada) {
 
@@ -295,8 +390,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			break;
 
 		case -3:
-
-			figuraActual = new Cubeta(puntoActual, panelDeDibujo);
 
 			break;
 
@@ -314,23 +407,338 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		case 0:
 
-			// figuraActual = new Cadena(3, puntoActual, anchura, altura);
+			figuraActual = new Cadena(3, puntoActual, anchura, altura);
 
+			break;
+
+		case 1:
+			figuraActual = new Circulo(puntoActual, anchura, altura);
+
+			break;
+
+		case 2:
+			figuraActual = new Anillo(puntoActual, anchura, altura);
+
+			break;
+
+		case 3:
+			figuraActual = new AroFeria(puntoActual, anchura, altura);
+
+			break;
+
+		case 4:
+			figuraActual = new Cilindro(puntoActual, anchura, altura);
+
+			break;
+
+		case 5:
+			figuraActual = new Cometa(puntoActual, anchura, altura);
+
+			break;
+
+		case 6:
+			figuraActual = new Corazon(puntoActual, anchura, altura);
+
+			break;
+
+		case 7:
+			figuraActual = new Trebol(puntoActual, anchura, altura);
+
+			break;
+
+		case 8:
+			figuraActual = new Cruz(puntoActual, anchura, altura);
+
+			break;
+
+		case 9:
+			figuraActual = new DavidStar(puntoActual, anchura, altura);
+
+			break;
+
+		case 10:
+			figuraActual = new Escaleno(puntoActual, anchura, altura);
+
+			break;
+
+		case 11:
+			figuraActual = new Luna(puntoActual, anchura, altura);
+
+			break;
+
+		case 12:
+			figuraActual = new Line(puntoActual);
+
+			break;
+
+		case 13:
+			figuraActual = new Punto(puntoActual);
+
+			break;
+
+		case 14:
+			figuraActual = new YingYang(puntoActual, anchura, altura);
+
+			break;
+
+		case 15:
+			figuraActual = new MedioCirculo(puntoActual, anchura, altura);
+
+			break;
+
+		case 16:
+			figuraActual = new Rueda(puntoActual, anchura, altura);
+
+			break;
+
+		case 17:
+			figuraActual = new SemiCirculo(puntoActual, anchura, altura);
+
+			break;
+
+		case 18:
+			figuraActual = new DibujoLibre1(puntoActual, anchura, altura);
+
+			break;
+
+		case 19:
+			figuraActual = new DibujoLibre2(puntoActual, anchura, altura);
+
+			break;
+
+		case 20:
+			figuraActual = new DibujoLibre3(puntoActual, anchura, altura);
+
+			break;
+
+		case 21:
+			figuraActual = new DibujoLibre4(puntoActual, anchura, altura);
+
+			break;
+
+		case 22:
+			figuraActual = new DibujoLibre5(puntoActual, anchura, altura);
+
+			break;
+
+		case 23:
+			figuraActual = new DibujoLibre6(puntoActual, anchura, altura);
+
+			break;
+
+		case 24:
+			figuraActual = new DibujoLibre7(puntoActual, anchura, altura);
+
+			break;
+
+		case 25:
+			figuraActual = new Star(puntoActual, anchura, altura);
+
+			break;
+
+		case 26:
+			figuraActual = new Star5P(puntoActual, anchura, altura);
+
+			break;
+
+		case 27:
+
+			switch (gradosFigura) {
+
+			default:
+			case 1:
+
+				figuraActual = new FlechaArriba(puntoActual, anchura, altura);
+
+				break;
+
+			case 2:
+				figuraActual = new FlechaIzquierda(puntoActual, anchura, altura);
+
+				break;
+
+			case 3:
+				figuraActual = new FlechaAbajo(puntoActual, anchura, altura);
+
+				break;
+
+			case 4:
+				figuraActual = new FlechaDerecha(puntoActual, anchura, altura);
+
+				break;
+
+			}
+
+			break;
+
+		case 28:
+
+			figuraActual = new Carta2(puntoActual, anchura, altura);
+
+			break;
+
+		case 29:
+			break;
+		case 30:
+			break;
+		case 31:
+			figuraActual = new Triangulo(puntoActual, anchura, altura);
+
+			break;
+
+		case 32:
+			figuraActual = new Cuadrado(puntoActual, anchura, altura);
+
+			break;
+
+		case 33:
+			figuraActual = new Hexagono(puntoActual, anchura, altura);
+
+			break;
+
+		case 34:
+			figuraActual = new Octogono(puntoActual, anchura, altura);
+
+			break;
+
+		case 35:
+			figuraActual = new Paralelogramo(puntoActual, anchura, altura);
+
+			break;
+
+		case 36:
+			figuraActual = new Pentagono(puntoActual, anchura, altura);
+
+			break;
+
+		case 37:
+			figuraActual = new Poligono(puntoActual, anchura, altura);
+
+			break;
+
+		case 38:
 			figuraActual = new Rectangulo(puntoActual, anchura, altura);
+
+			break;
+
+		case 39:
+			figuraActual = new Rombo(puntoActual, anchura, altura);
+
+			break;
+
+		case 40:
+			figuraActual = new Trapecio(puntoActual, anchura, altura);
+
+			break;
+
+		case 41:
+			switch (gradosFigura) {
+
+			default:
+			case 1:
+
+				figuraActual = new TrianguloRectangulo1(puntoActual, anchura, altura);
+
+				break;
+
+			case 2:
+				figuraActual = new TrianguloRectangulo2(puntoActual, anchura, altura);
+
+				break;
+
+			case 3:
+				figuraActual = new TrianguloRectangulo3(puntoActual, anchura, altura);
+
+				break;
+
+			case 4:
+
+				figuraActual = new TrianguloRectangulo(puntoActual, anchura, altura);
+
+				break;
+
+			}
+
+			break;
+
+		case 42:
+			figuraActual = new Carta(puntoActual, anchura, altura);
+
+			break;
+
+		case 43:
+			figuraActual = new PacMan(puntoActual, anchura, altura);
+
+			break;
+
+		case 44:
+			figuraActual = new Mandala1(puntoActual, anchura, altura);
+
+			break;
+
+		case 45:
+			figuraActual = new Mandala2(puntoActual, anchura, altura);
+
+			break;
+
+		case 46:
+			figuraActual = new Mandala3(puntoActual, anchura, altura);
+
+			break;
+
+		case 47:
+			figuraActual = new Mandala4(puntoActual, anchura, altura);
+
+			break;
+
+		case 48:
+			figuraActual = new Mandala5(puntoActual, anchura, altura);
+
+			break;
+
+		case 49:
+			figuraActual = new Mandala6(puntoActual, anchura, altura);
+
+			break;
+
+		case 50:
+			figuraActual = new MandalaCirculo(puntoActual, anchura, altura);
+
+			break;
+
+		case 51:
+			figuraActual = new MandalaEstrella(puntoActual, anchura, altura);
+
+			break;
+
+		case 52:
+			figuraActual = new TrebolTresHojas(puntoActual, anchura, altura);
+
+			break;
+
+		case 53:
+			figuraActual = new TrebolCuatroHojas(puntoActual, anchura, altura);
+
+			break;
+
+		case 54:
+			figuraActual = new Lapiz(puntoActual);
+
+			break;
+
+		case 55:
+			figuraActual = new Borrador(puntoActual);
+
+			break;
+
+		case 56:
+			figuraActual = new Spray(puntoActual);
 
 			break;
 
 		}
 
 		if (figuraActual != null) {
-
-			if (!regla && verRegla.isSelected()) {
-
-				regla = true;
-
-				figuraActual.pintarRegla(getGraphics());
-
-			}
 
 			figuraActual.setMoverArriba(moverArriba.getValor());
 
@@ -379,12 +787,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 	private int saberEscala() {
 
 		return angulo3.getValor();
-
-	}
-
-	private boolean tieneMalla() {
-
-		return malla.isSelected();
 
 	}
 
@@ -639,7 +1041,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	public boolean getSiseDibujaraRellena() {
 
-		return verRegla.isSelected();
+		return verPuntos.isSelected();
 
 	}
 
@@ -666,6 +1068,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 	public void initComponents() {
 
 		try {
+
+//			nombreFigura.addItem("aaa");
+//
+//			subTipoFigura.addItem("aaa");
 
 			idCategoria = -1;
 
@@ -708,7 +1114,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			listaFiguras = new LinkedList<>();
 
-			verRegla = new CheckBoxLabel(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/regla.png")));
+			verPuntos = new CheckBoxLabel(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/puntos.png")));
 
 			color1 = new CopyColor(Color.BLACK, false);
 
@@ -767,8 +1173,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			efectosFiguras = new LinkedList();
 
-			malla = new CheckBoxLabel(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/malla.png")));
-
 			efectoFigura = new ComboBoxSuggestion();
 
 			nombreFigura = new ComboBoxSuggestion();
@@ -808,7 +1212,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			efectoFigura.addItem("cadena");
 
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 			vueltas.setMinValor(1);
 
@@ -1004,7 +1408,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			jLabel3_1.setHorizontalAlignment(SwingConstants.CENTER);
 
-			verRegla.setBackground(Color.WHITE);
+			verPuntos.setBackground(Color.WHITE);
 
 			nombreFigura.addItemListener(new ItemListener() {
 
@@ -1028,15 +1432,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			});
 
-			malla.setBackground(SystemColor.textHighlight);
-
 			redondear.setBackground(Color.WHITE);
-
-			JLabel jLabel8_1_1 = new JLabel();
-
-			jLabel8_1_1.setIcon(null);
-
-			jLabel8_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 
 			grosor.setMinValor(1);
 
@@ -1111,31 +1507,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			JPanel panel_1_1 = new JPanel();
 			panel_1_1.setBackground(Color.WHITE);
 
-			SimpleButton btn24_1_1 = new SimpleButton("");
-			btn24_1_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/Recycle_Bin_Full.png")));
-			btn24_1_1.setToolTipText("Borrador");
-			btn24_1_1.setPreferredSize(new Dimension(37, 30));
-			btn24_1_1.setOpaque(true);
-			btn24_1_1.setContentAreaFilled(false);
-			panel_1_1.add(btn24_1_1);
-
-			SimpleButton btn23_1_1 = new SimpleButton("");
-			btn23_1_1.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					panelDeDibujo.setFiguraSeleccionada(-3);
-
-				}
-
-			});
-
-			btn23_1_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/lapiz.png")));
-			btn23_1_1.setToolTipText("Gotero");
-			btn23_1_1.setPreferredSize(new Dimension(37, 30));
-			btn23_1_1.setOpaque(true);
-			btn23_1_1.setContentAreaFilled(false);
-			panel_1_1.add(btn23_1_1);
-
 			SimpleButton centrar_1_1 = new SimpleButton("");
 
 			centrar_1_1.addActionListener(new ActionListener() {
@@ -1145,11 +1516,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 				public void actionPerformed(ActionEvent e) {
 
 					girarFigura(true);
+
 				}
+
 			});
+
 			centrar_1_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/rotate_180_r.png")));
+
 			centrar_1_1.setOpaque(true);
+
 			centrar_1_1.setContentAreaFilled(false);
+
 			panel_1_1.add(centrar_1_1);
 
 			SimpleButton btnNewButton_2 = new SimpleButton("");
@@ -1165,7 +1542,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			});
 
-			btnNewButton_2.setBorderColor(Color.BLACK);
+			btnNewButton_2.setBorderColor(Color.PINK);
 			btnNewButton_2.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/curva.png")));
 
 			SimpleButton btnNewButton_2_1 = new SimpleButton("");
@@ -1194,299 +1571,251 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			});
 			btnNewButton_2_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/reset.png")));
-			btnNewButton_2_1.setBorderColor(Color.BLACK);
-
-			CheckBoxLabel enCirculo_1 = new CheckBoxLabel(
-					new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/puntos.png")));
-
-			enCirculo_1.setBackground(Color.WHITE);
+			btnNewButton_2_1.setBorderColor(Color.PINK);
 
 			GroupLayout gl_jPanel2 = new GroupLayout(jPanel2);
-			gl_jPanel2
-					.setHorizontalGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING).addGroup(gl_jPanel2
-							.createSequentialGroup().addContainerGap().addGroup(gl_jPanel2
-									.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2.createSequentialGroup()
-											.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 28,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(
-													ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-											.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 28,
-													GroupLayout.PREFERRED_SIZE))
-									.addComponent(color2, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-									.addComponent(picker, GroupLayout.PREFERRED_SIZE, 114,
+			gl_jPanel2.setHorizontalGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
+					.createSequentialGroup().addContainerGap()
+					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+							.addComponent(color1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(color2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGroup(gl_jPanel2.createSequentialGroup()
+									.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 28,
 											GroupLayout.PREFERRED_SIZE)
-									.addComponent(color1, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
-									.createSequentialGroup()
-									.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-									.addGap(2)
-									.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(panel_1_1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-									.addGap(11)
-									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false)
-											.addGroup(gl_jPanel2.createSequentialGroup()
-													.addComponent(jToggleButton4_1, GroupLayout.PREFERRED_SIZE, 32,
-															GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.RELATED)
-													.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 116,
-															GroupLayout.PREFERRED_SIZE))
-											.addGroup(gl_jPanel2.createSequentialGroup()
-													.addComponent(dibujarRellena, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.RELATED).addComponent(malla,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-															Short.MAX_VALUE)))
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING, false)
-											.addComponent(radio, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-													Short.MAX_VALUE)
-											.addComponent(sumarAngulo, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE))
-									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-											.addGroup(gl_jPanel2.createSequentialGroup().addGap(4)
-													.addComponent(jLabel2_1, GroupLayout.PREFERRED_SIZE, 22,
-															GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.RELATED).addComponent(
-															moverArriba, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
-											.addGroup(gl_jPanel2.createSequentialGroup()
-													.addPreferredGap(ComponentPlacement.RELATED).addComponent(grosor,
-															GroupLayout.PREFERRED_SIZE, 84,
-															GroupLayout.PREFERRED_SIZE))))
-									.addGroup(gl_jPanel2.createSequentialGroup()
-											.addComponent(jLabel9_1, GroupLayout.PREFERRED_SIZE, 30,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(anguloGiro, GroupLayout.PREFERRED_SIZE, 71,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(angulo2, GroupLayout.PREFERRED_SIZE, 70,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(angulo3, GroupLayout.PREFERRED_SIZE, 69,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(angulo4, GroupLayout.PREFERRED_SIZE, 68,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(angulo5, GroupLayout.PREFERRED_SIZE, 68,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton_2_1,
-													GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false).addGroup(gl_jPanel2
-									.createSequentialGroup()
-									.addComponent(jLabel6_1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED).addComponent(
-											vueltas, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-											Short.MAX_VALUE))
-									.addGroup(gl_jPanel2.createSequentialGroup()
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-													.addComponent(jLabel3_1, GroupLayout.DEFAULT_SIZE, 34,
-															Short.MAX_VALUE)
-													.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-													.addComponent(moverAbajo, GroupLayout.DEFAULT_SIZE,
-															GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-													.addComponent(enCirculo_1, GroupLayout.PREFERRED_SIZE, 68,
-															GroupLayout.PREFERRED_SIZE))))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
-									.addComponent(enCirculo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-											Short.MAX_VALUE)
-									.addComponent(redondear, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-											GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(verRegla, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 68,
-											Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
-									.addGroup(gl_jPanel2.createSequentialGroup().addComponent(jLabel8_1_1)
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-													.addComponent(nombreFigura, GroupLayout.DEFAULT_SIZE, 253,
-															Short.MAX_VALUE)
-													.addComponent(subTipoFigura, GroupLayout.DEFAULT_SIZE, 253,
-															Short.MAX_VALUE)))
-									.addComponent(efectoFigura, GroupLayout.PREFERRED_SIZE, 253,
-											GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED).addComponent(orientacion).addGap(18)
-							.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
-									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-											GroupLayout.PREFERRED_SIZE)
-									.addGroup(
-											gl_jPanel2.createSequentialGroup()
-													.addComponent(vistaFigura, GroupLayout.PREFERRED_SIZE, 143,
-															GroupLayout.PREFERRED_SIZE)
-													.addGap(77)))
-							.addContainerGap()));
-			gl_jPanel2.setVerticalGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
-					.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED, 46, Short.MAX_VALUE).addComponent(
+											btnNewButton_1, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
+							.addComponent(picker, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
 							.createSequentialGroup()
-							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
+							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false).addGroup(gl_jPanel2
 									.createSequentialGroup()
-									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-											.addComponent(jToggleButton4_1, GroupLayout.DEFAULT_SIZE, 71,
+									.addComponent(radio, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+											GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED).addComponent(dibujarRellena,
+											GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+											GroupLayout.PREFERRED_SIZE))
+									.addGroup(gl_jPanel2.createSequentialGroup()
+											.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 47,
+													GroupLayout.PREFERRED_SIZE)
+											.addGap(2)
+											.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 46,
+													GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(panel_1_1, GroupLayout.PREFERRED_SIZE, 46,
+													GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
 													Short.MAX_VALUE)
-											.addGroup(gl_jPanel2.createSequentialGroup().addContainerGap()
-													.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
-															.addComponent(grosor, GroupLayout.DEFAULT_SIZE, 60,
-																	Short.MAX_VALUE)
-															.addComponent(sumarAngulo, GroupLayout.DEFAULT_SIZE, 60,
-																	Short.MAX_VALUE)
-															.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 60,
-																	GroupLayout.PREFERRED_SIZE)
-															.addGroup(gl_jPanel2.createSequentialGroup()
-																	.addComponent(jLabel6_1, GroupLayout.DEFAULT_SIZE,
-																			54, Short.MAX_VALUE)
-																	.addPreferredGap(ComponentPlacement.RELATED))
-															.addGroup(gl_jPanel2.createSequentialGroup()
-																	.addGroup(gl_jPanel2
-																			.createParallelGroup(Alignment.TRAILING)
-																			.addComponent(verRegla, Alignment.LEADING,
-																					GroupLayout.DEFAULT_SIZE, 54,
-																					Short.MAX_VALUE)
-																			.addComponent(vueltas, Alignment.LEADING,
-																					GroupLayout.DEFAULT_SIZE, 54,
-																					Short.MAX_VALUE)
-																			.addComponent(nombreFigura,
-																					Alignment.LEADING,
-																					GroupLayout.DEFAULT_SIZE, 54,
-																					Short.MAX_VALUE)
-																			.addComponent(orientacion,
-																					Alignment.LEADING))
-																	.addPreferredGap(ComponentPlacement.RELATED)))))
-									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
-											.createSequentialGroup().addGap(7)
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-													.addComponent(radio, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-													.addComponent(malla, GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-													.addComponent(jLabel2_1, Alignment.TRAILING,
-															GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-													.addComponent(dibujarRellena, Alignment.TRAILING,
-															GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-													.addComponent(moverArriba, Alignment.TRAILING,
-															GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)))
-											.addGroup(gl_jPanel2.createSequentialGroup()
-													.addPreferredGap(ComponentPlacement.RELATED)
-													.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-															.addComponent(jLabel8_1_1, Alignment.TRAILING,
-																	GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-															.addComponent(subTipoFigura, Alignment.TRAILING,
-																	GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-															.addGroup(Alignment.TRAILING, gl_jPanel2
-																	.createParallelGroup(Alignment.LEADING, false)
-																	.addComponent(moverAbajo, Alignment.TRAILING,
-																			GroupLayout.DEFAULT_SIZE,
-																			GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																	.addComponent(redondear, Alignment.TRAILING,
-																			GroupLayout.DEFAULT_SIZE, 53,
-																			Short.MAX_VALUE))
-															.addComponent(jLabel3_1, Alignment.TRAILING,
-																	GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)))))
-									.addGroup(
-											gl_jPanel2.createSequentialGroup().addGap(46).addComponent(picker,
-													GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.RELATED).addGroup(gl_jPanel2
-															.createParallelGroup(Alignment.LEADING, false).addComponent(
-																	btnNewButton_1, GroupLayout.DEFAULT_SIZE,
-																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-															.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE,
-																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-									.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE).addComponent(
-											panel_1_1, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-									.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+											.addComponent(jToggleButton4_1, GroupLayout.PREFERRED_SIZE, 32,
+													GroupLayout.PREFERRED_SIZE)))
+							.addGap(0)
+							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_jPanel2.createSequentialGroup()
+											.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 116,
+													GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(sumarAngulo,
+													GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))
+									.addGroup(gl_jPanel2.createSequentialGroup()
+											.addComponent(jLabel2_1, GroupLayout.PREFERRED_SIZE, 22,
+													GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(moverArriba, GroupLayout.PREFERRED_SIZE, 52,
+													GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(jLabel3_1)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(moverAbajo, GroupLayout.DEFAULT_SIZE,
+													GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
 									.createSequentialGroup()
-									.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
-											.addGroup(gl_jPanel2.createSequentialGroup()
-													.addComponent(color2, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-													.addGap(7))
-											.addGroup(gl_jPanel2.createSequentialGroup().addGroup(gl_jPanel2
-													.createParallelGroup(Alignment.LEADING)
-													.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
-															.addComponent(anguloGiro, GroupLayout.PREFERRED_SIZE,
-																	GroupLayout.DEFAULT_SIZE,
-																	GroupLayout.PREFERRED_SIZE)
-															.addComponent(angulo2, GroupLayout.DEFAULT_SIZE, 54,
-																	Short.MAX_VALUE)
-															.addComponent(angulo3, GroupLayout.DEFAULT_SIZE, 54,
-																	Short.MAX_VALUE)
-															.addComponent(angulo4, GroupLayout.DEFAULT_SIZE, 54,
-																	Short.MAX_VALUE)
-															.addComponent(angulo5, GroupLayout.DEFAULT_SIZE, 52,
-																	Short.MAX_VALUE))
-													.addComponent(jLabel9_1, Alignment.TRAILING,
-															GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
-													.addGap(7))
-											.addGroup(gl_jPanel2.createSequentialGroup().addGroup(gl_jPanel2
-													.createParallelGroup(Alignment.LEADING)
-													.addComponent(btnNewButton_2, Alignment.TRAILING,
-															GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-													.addComponent(enCirculo, Alignment.TRAILING,
-															GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-															GroupLayout.PREFERRED_SIZE)
-													.addComponent(efectoFigura, Alignment.TRAILING,
-															GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-													.addComponent(enCirculo_1, Alignment.TRAILING,
-															GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
-													.addGap(16)))
-									.addGap(39)).addComponent(btnNewButton_2_1, GroupLayout.PREFERRED_SIZE, 54,
-											GroupLayout.PREFERRED_SIZE)))
-							.addGroup(gl_jPanel2.createSequentialGroup().addContainerGap().addGroup(gl_jPanel2
-									.createParallelGroup(Alignment.LEADING)
-									.addComponent(vistaFigura, GroupLayout.PREFERRED_SIZE, 100,
-											GroupLayout.PREFERRED_SIZE)
+									.addComponent(grosor, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(jLabel6_1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(vueltas, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
 									.addGroup(gl_jPanel2.createSequentialGroup()
-											.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-											.addGap(115)
-											.addComponent(color1, GroupLayout.PREFERRED_SIZE, 49, Short.MAX_VALUE)
-											.addGap(73)))))
-					.addGap(3)));
-
-			SimpleButton btn22_1 = new SimpleButton("");
-			panel_2.add(btn22_1);
-
-			btn22_1.addActionListener(new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					panelDeDibujo.setFiguraSeleccionada(-2);
-				}
-			});
-
-			btn22_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/lapiz.png")));
-
-			btn22_1.setToolTipText("Lapiz");
-
-			btn22_1.setPreferredSize(new Dimension(37, 30));
-
-			btn22_1.setOpaque(true);
-
-			btn22_1.setContentAreaFilled(false);
-
-			SimpleButton btn20_1 = new SimpleButton("");
-			btn20_1.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					panelDeDibujo.setFiguraSeleccionada(-4);
-				}
-			});
-			panel_2.add(btn20_1);
-
-			btn20_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/spray.png")));
-
-			btn20_1.setToolTipText("Cubeta");
-
-			btn20_1.setPreferredSize(new Dimension(37, 30));
-
-			btn20_1.setOpaque(true);
-
-			btn20_1.setContentAreaFilled(false);
+											.addComponent(verPuntos, GroupLayout.PREFERRED_SIZE,
+													GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addComponent(enCirculo, GroupLayout.PREFERRED_SIZE,
+													GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
+													Short.MAX_VALUE)
+											.addComponent(redondear, GroupLayout.PREFERRED_SIZE, 72,
+													GroupLayout.PREFERRED_SIZE)))
+							.addPreferredGap(ComponentPlacement.RELATED))
+							.addGroup(gl_jPanel2.createSequentialGroup()
+									.addComponent(jLabel9_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(anguloGiro, GroupLayout.PREFERRED_SIZE, 71,
+											GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(angulo2, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(angulo3, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(angulo4, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(angulo5, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton_2_1,
+											GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+							.addComponent(efectoFigura, GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false)
+									.addComponent(subTipoFigura, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+											Short.MAX_VALUE)
+									.addComponent(nombreFigura, GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)))
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(orientacion).addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(vistaFigura, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE).addGap(355)
+					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+							GroupLayout.PREFERRED_SIZE)
+					.addContainerGap()));
+			gl_jPanel2
+					.setVerticalGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_jPanel2.createSequentialGroup().addGroup(gl_jPanel2
+									.createParallelGroup(
+											Alignment.LEADING)
+									.addGroup(gl_jPanel2.createSequentialGroup().addGroup(gl_jPanel2
+											.createParallelGroup(Alignment.LEADING)
+											.addGroup(gl_jPanel2.createSequentialGroup().addGroup(gl_jPanel2
+													.createParallelGroup(Alignment.LEADING)
+													.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false)
+															.addComponent(panel_1_1, GroupLayout.DEFAULT_SIZE,
+																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+															.addComponent(panel_1, GroupLayout.DEFAULT_SIZE,
+																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+															.addComponent(panel_2, GroupLayout.DEFAULT_SIZE,
+																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+															.addGroup(gl_jPanel2.createSequentialGroup().addGap(46)
+																	.addComponent(picker, GroupLayout.PREFERRED_SIZE,
+																			30, GroupLayout.PREFERRED_SIZE)))
+													.addComponent(jToggleButton4_1, GroupLayout.DEFAULT_SIZE, 76,
+															Short.MAX_VALUE))
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false)
+															.addComponent(radio, GroupLayout.DEFAULT_SIZE,
+																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+															.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE,
+																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+															.addComponent(dibujarRellena, Alignment.TRAILING,
+																	GroupLayout.PREFERRED_SIZE, 62,
+																	GroupLayout.PREFERRED_SIZE)
+															.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 51,
+																	GroupLayout.PREFERRED_SIZE)
+															.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE,
+																	52, GroupLayout.PREFERRED_SIZE)))
+											.addGroup(gl_jPanel2.createSequentialGroup().addGroup(gl_jPanel2
+													.createParallelGroup(Alignment.LEADING)
+													.addGroup(gl_jPanel2.createSequentialGroup().addGroup(gl_jPanel2
+															.createParallelGroup(Alignment.LEADING)
+															.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
+																	.addComponent(vueltas, GroupLayout.DEFAULT_SIZE, 60,
+																			Short.MAX_VALUE)
+																	.addComponent(nombreFigura,
+																			GroupLayout.DEFAULT_SIZE, 60,
+																			Short.MAX_VALUE))
+															.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
+																	.addComponent(textField_1, GroupLayout.DEFAULT_SIZE,
+																			60, Short.MAX_VALUE)
+																	.addComponent(sumarAngulo, GroupLayout.DEFAULT_SIZE,
+																			60, Short.MAX_VALUE)
+																	.addComponent(grosor, GroupLayout.PREFERRED_SIZE,
+																			60, GroupLayout.PREFERRED_SIZE)))
+															.addGap(10))
+													.addGroup(
+															gl_jPanel2.createSequentialGroup()
+																	.addComponent(jLabel6_1, GroupLayout.DEFAULT_SIZE,
+																			69, Short.MAX_VALUE)
+																	.addPreferredGap(ComponentPlacement.RELATED)))
+													.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+															.addComponent(jLabel3_1, GroupLayout.DEFAULT_SIZE, 69,
+																	Short.MAX_VALUE)
+															.addComponent(jLabel2_1, Alignment.TRAILING,
+																	GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+															.addGroup(gl_jPanel2.createSequentialGroup()
+																	.addPreferredGap(ComponentPlacement.UNRELATED)
+																	.addComponent(
+																			subTipoFigura, GroupLayout.DEFAULT_SIZE, 69,
+																			Short.MAX_VALUE))
+															.addGroup(Alignment.TRAILING, gl_jPanel2
+																	.createSequentialGroup()
+																	.addPreferredGap(ComponentPlacement.RELATED)
+																	.addComponent(
+																			moverArriba, GroupLayout.PREFERRED_SIZE, 61,
+																			GroupLayout.PREFERRED_SIZE))
+															.addGroup(Alignment.TRAILING, gl_jPanel2
+																	.createSequentialGroup()
+																	.addPreferredGap(ComponentPlacement.RELATED)
+																	.addGroup(gl_jPanel2
+																			.createParallelGroup(Alignment.LEADING,
+																					false)
+																			.addComponent(redondear, Alignment.TRAILING,
+																					GroupLayout.DEFAULT_SIZE,
+																					GroupLayout.DEFAULT_SIZE,
+																					Short.MAX_VALUE)
+																			.addComponent(enCirculo, Alignment.TRAILING,
+																					GroupLayout.DEFAULT_SIZE,
+																					GroupLayout.DEFAULT_SIZE,
+																					Short.MAX_VALUE)
+																			.addComponent(verPuntos, Alignment.TRAILING,
+																					GroupLayout.DEFAULT_SIZE,
+																					GroupLayout.DEFAULT_SIZE,
+																					Short.MAX_VALUE)
+																			.addComponent(
+																					moverAbajo, Alignment.TRAILING,
+																					GroupLayout.DEFAULT_SIZE, 61,
+																					Short.MAX_VALUE))))))
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+													.addGroup(gl_jPanel2.createSequentialGroup().addGroup(gl_jPanel2
+															.createParallelGroup(Alignment.LEADING)
+															.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
+																	.addComponent(anguloGiro,
+																			GroupLayout.PREFERRED_SIZE,
+																			GroupLayout.DEFAULT_SIZE,
+																			GroupLayout.PREFERRED_SIZE)
+																	.addComponent(angulo2, GroupLayout.DEFAULT_SIZE, 54,
+																			Short.MAX_VALUE)
+																	.addComponent(angulo3, GroupLayout.DEFAULT_SIZE, 54,
+																			Short.MAX_VALUE)
+																	.addComponent(angulo4, GroupLayout.DEFAULT_SIZE, 54,
+																			Short.MAX_VALUE)
+																	.addComponent(angulo5, GroupLayout.DEFAULT_SIZE, 52,
+																			Short.MAX_VALUE))
+															.addComponent(jLabel9_1, GroupLayout.DEFAULT_SIZE, 54,
+																	Short.MAX_VALUE))
+															.addGap(46))
+													.addGroup(gl_jPanel2
+															.createParallelGroup(Alignment.TRAILING, false)
+															.addComponent(efectoFigura, Alignment.LEADING,
+																	GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+																	Short.MAX_VALUE)
+															.addComponent(
+																	btnNewButton_2_1, Alignment.LEADING,
+																	GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))))
+									.addGroup(gl_jPanel2.createSequentialGroup().addContainerGap()
+											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+													.addGroup(gl_jPanel2.createSequentialGroup()
+															.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 0,
+																	Short.MAX_VALUE)
+															.addGap(115)
+															.addComponent(color1, GroupLayout.PREFERRED_SIZE, 31,
+																	GroupLayout.PREFERRED_SIZE)
+															.addPreferredGap(ComponentPlacement.RELATED)
+															.addComponent(color2, GroupLayout.PREFERRED_SIZE, 32,
+																	GroupLayout.PREFERRED_SIZE)
+															.addGap(53))
+													.addComponent(orientacion))))
+									.addGap(3))
+							.addGroup(
+									gl_jPanel2
+											.createSequentialGroup().addComponent(vistaFigura,
+													GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+											.addContainerGap()));
 
 			SimpleButton girarIzquierda_1 = new SimpleButton("");
 			panel_2.add(girarIzquierda_1);
@@ -1508,57 +1837,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			girarIzquierda_1.setContentAreaFilled(false);
 
-			SimpleButton btn24_1 = new SimpleButton("");
+			SimpleButton deshacer = new SimpleButton("");
+			deshacer.setBorderColor(Color.WHITE);
 
-			btn24_1.addActionListener(new ActionListener() {
-
+			deshacer.addMouseListener(new MouseAdapter() {
 				@Override
 
-				public void actionPerformed(ActionEvent e) {
+				public void mousePressed(MouseEvent e) {
 
-					panelDeDibujo.setFiguraSeleccionada(-1);
+					deshacer();
 
 				}
 
 			});
 
-			panel_1.add(btn24_1);
+			deshacer.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/deshacer.png")));
 
-			btn24_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/borrador.png")));
-
-			btn24_1.setToolTipText("Borrador");
-
-			btn24_1.setPreferredSize(new Dimension(37, 30));
-
-			btn24_1.setOpaque(true);
-
-			btn24_1.setContentAreaFilled(false);
-
-			SimpleButton btn23_1 = new SimpleButton("");
-
-			panel_1.add(btn23_1);
-
-			btn23_1.addActionListener(new ActionListener() {
-
-				@Override
-
-				public void actionPerformed(ActionEvent e) {
-
-					dibujarFigura(-1);
-
-				}
-
-			});
-
-			btn23_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/lapiz.png")));
-
-			btn23_1.setToolTipText("Gotero");
-
-			btn23_1.setPreferredSize(new Dimension(37, 30));
-
-			btn23_1.setOpaque(true);
-
-			btn23_1.setContentAreaFilled(false);
+			panel_2.add(deshacer);
 
 			SimpleButton centrar_1 = new SimpleButton("");
 
@@ -1582,6 +1877,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			centrar_1.setOpaque(true);
 
 			centrar_1.setContentAreaFilled(false);
+
+			SimpleButton btn24_1_1 = new SimpleButton("");
+			panel_1.add(btn24_1_1);
+			btn24_1_1.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+					panelDeDibujo.getFiguras().clear();
+
+					panelDeDibujo.getFigurasDeshechas().clear();
+
+					panelDeDibujo.repaint();
+
+				}
+
+			});
+			btn24_1_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/Recycle_Bin_Full.png")));
+			btn24_1_1.setToolTipText("Borrador");
+			btn24_1_1.setPreferredSize(new Dimension(37, 30));
+			btn24_1_1.setOpaque(true);
+			btn24_1_1.setContentAreaFilled(false);
 
 			jPanel2.setLayout(gl_jPanel2);
 
@@ -1674,5 +1991,4 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 		return grosor.getValor();
 
 	}
-
 }

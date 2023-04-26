@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class TrianguloRectangulo extends Figura {
 
@@ -64,7 +64,6 @@ public class TrianguloRectangulo extends Figura {
 		g2.setColor(getColor());
 
 		g2.drawPolygon(puntosX, puntosY, 3);
-
 	}
 
 }

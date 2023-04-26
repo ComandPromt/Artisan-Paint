@@ -10,7 +10,7 @@ import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Poligono extends Figura {
 
@@ -226,17 +226,47 @@ public class Poligono extends Figura {
 
 		if (getVueltas() == 3) {
 
-			g2.drawLine(x + (anchura / 2), y, x, y + altura);
+			Point punto1 = new Point(x + (anchura / 2), y);
 
-			g2.drawLine(x, y + altura, x + anchura, y + altura);
+			Point punto2 = new Point(x, y + altura);
 
-			g2.drawLine(x + anchura, y + altura, x + (anchura / 2), y);
+			Point punto3 = new Point(x + anchura, y + altura);
+
+			int[] puntosX = { punto1.x, punto2.x, punto3.x };
+
+			int[] puntosY = { punto1.y, punto2.y, punto3.y };
+
+			if (dibujarRellena()) {
+
+				g2.setColor(getColorSecundario());
+
+				g2.fillPolygon(puntosX, puntosY, 3);
+
+			}
+
+			else {
+
+				g2.drawPolygon(puntosX, puntosY, 3);
+
+			}
 
 		}
 
 		else {
 
-			g2.draw(regularPolygon(getVueltas(), x, y, anchura, altura));
+			if (dibujarRellena()) {
+
+				g2.setColor(getColorSecundario());
+
+				g2.fill(regularPolygon(getVueltas(), x, y, anchura, altura));
+
+			}
+
+			else {
+
+				g2.draw(regularPolygon(getVueltas(), x, y, anchura, altura));
+
+			}
 
 		}
 

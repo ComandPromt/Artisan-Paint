@@ -8,11 +8,13 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Stack;
 
 import javax.swing.JPanel;
 
-import util.Figura;
+import dibujante.Figura;
+import util.Metodos;
 
 public class PanelDeDibujo extends JPanel {
 
@@ -74,18 +76,17 @@ public class PanelDeDibujo extends JPanel {
 
 					}
 
-					if (figuraSeleccionada >= 0 && VentanaPrincipal.subTipoFigura.getItemCount() > 0
-							&& VentanaPrincipal.subTipoFigura.getSelectedIndex() > 0) {
+					try {
 
-						try {
+						LinkedList<Integer> lista = Metodos.obtenerNumeroFigura(
+								VentanaPrincipal.comboBox.getSelectedIndex(),
+								VentanaPrincipal.nombreFigura.getSelectedIndex() + 1);
 
-							figuraSeleccionada = VentanaPrincipal.subTipoFigura.getSelectedIndex();
+						figuraSeleccionada = lista.get(VentanaPrincipal.subTipoFigura.getSelectedIndex());
 
-						}
+					}
 
-						catch (Exception e) {
-
-						}
+					catch (Exception e) {
 
 					}
 
@@ -198,8 +199,6 @@ public class PanelDeDibujo extends JPanel {
 		figuras.forEach(figura -> {
 
 			figura.dibujar(g2);
-
-			// figura.pintarRegla(g2);
 
 		});
 

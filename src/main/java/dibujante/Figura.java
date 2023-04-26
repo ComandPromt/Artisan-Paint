@@ -1,22 +1,15 @@
-package util;
+package dibujante;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Toolkit;
-
-import dibujante.MarcoDeFigura;
 
 public abstract class Figura {
 
 	protected MarcoDeFigura marcoDeFigura;
 
-	protected boolean dibujarRellena = false;
+	private boolean dibujarRellena = false;
 
 	protected int grosor;
 
@@ -331,34 +324,6 @@ public abstract class Figura {
 	public abstract void actualizar(Point puntoActual);
 
 	public abstract void dibujar(Graphics g);
-
-	public void pintarRegla(Graphics g) {
-
-		Graphics2D g2 = (Graphics2D) g;
-
-		g2.setStroke(new BasicStroke(1));
-
-		g2.setColor(Color.BLACK);
-
-		g.fillRect(10, 10, 4, 4);
-
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-		g.drawLine(10, 10, 10, screenSize.height);
-
-		g.drawLine(10, 10, screenSize.width, 10);
-
-		g.setFont(new Font("Arial", Font.PLAIN, 14));
-
-		for (int i = 0; i <= screenSize.width; i += 50) {
-
-			g.drawString(Integer.toString(i), i, 10);
-
-			g.drawString(Integer.toString(i), 10, i);
-
-		}
-
-	}
 
 	public void setEscala(int escala) {
 

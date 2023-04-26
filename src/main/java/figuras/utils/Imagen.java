@@ -7,7 +7,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Imagen extends Figura {
 

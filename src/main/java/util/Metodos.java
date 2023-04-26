@@ -117,6 +117,51 @@ public class Metodos {
 
 	}
 
+	public static LinkedList<Integer> obtenerNumeroFigura(int idioma, int padre) throws IOException, SQLException {
+
+		LinkedList<Integer> lista = new LinkedList<Integer>();
+
+		try {
+
+			conexionBD();
+
+			String tabla = saberIdioma(idioma);
+
+			PreparedStatement st;
+
+			ResultSet result2 = null;
+
+			String consulta = "SELECT G.FIGURA AS 'ID' FROM FIGURAS_" + tabla
+					+ " F JOIN GRUPOSFIGURAS G ON G.FIGURA=F.FIGURA WHERE G.GRUPO=" + padre;
+
+			st = connect.prepareStatement(consulta);
+
+			result2 = st.executeQuery();
+			System.out.println(consulta);
+			while (result2.next()) {
+
+				st = connect.prepareStatement(consulta);
+
+				lista.add(Integer.parseInt(result2.getString("ID")));
+
+			}
+
+		}
+
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+		finally {
+
+			connect.close();
+
+		}
+
+		return lista;
+
+	}
+
 	public static LinkedList<String> obtenerGrupos(int idioma, int padre, boolean subGrupo)
 			throws IOException, SQLException {
 

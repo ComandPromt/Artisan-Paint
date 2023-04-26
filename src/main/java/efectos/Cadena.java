@@ -8,9 +8,8 @@ import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
 import dibujante.VentanaPrincipal;
-import util.Figura;
 
-public class Cadena extends Figura {
+public class Cadena extends dibujante.Figura {
 
 	private int figura;
 

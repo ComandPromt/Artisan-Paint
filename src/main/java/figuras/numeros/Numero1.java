@@ -1,4 +1,4 @@
-package figuras.simbolos;
+package figuras.numeros;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics;
@@ -8,9 +8,9 @@ import java.awt.Point;
 import dibujante.MarcoDeFigura;
 import dibujante.Figura;
 
-public class Carta extends Figura {
+public class Numero1 extends Figura {
 
-	public Carta(Point ubicacion, int anchura, int altura) {
+	public Numero1(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
@@ -44,11 +44,9 @@ public class Carta extends Figura {
 
 		g2.setColor(getColor());
 
-		g2.drawRect(x, y, anchura, altura);
+		g2.drawLine(x, y + altura / 2, x + anchura, y);
 
-		g2.drawLine(x, y, x + anchura / 2, y + altura / 2);
-
-		g2.drawLine(x + anchura, y, x + anchura / 2, y + altura / 2);
+		g2.drawLine(x + anchura, y, x + anchura, y + altura);
 
 	}
 

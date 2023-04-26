@@ -8,7 +8,7 @@ import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
 import dibujante.VentanaPrincipal;
-import util.Figura;
+import dibujante.Figura;
 
 public class Mandala4 extends Figura {
 

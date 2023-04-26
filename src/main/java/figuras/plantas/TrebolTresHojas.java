@@ -10,7 +10,7 @@ import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class TrebolTresHojas extends Figura {
 

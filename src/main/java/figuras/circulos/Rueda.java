@@ -8,7 +8,7 @@ import java.awt.Point;
 import java.awt.geom.Point2D;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Rueda extends Figura {
 

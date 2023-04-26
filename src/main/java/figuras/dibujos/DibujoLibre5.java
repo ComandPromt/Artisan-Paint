@@ -1,19 +1,17 @@
 package figuras.dibujos;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
 import dibujante.VentanaPrincipal;
-import util.Figura;
+import dibujante.Figura;
 
 public class DibujoLibre5 extends Figura {
 
-	public DibujoLibre5(Point ubicacion, int anchura, int altura,
-			boolean figuraRellena) {
+	public DibujoLibre5(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 

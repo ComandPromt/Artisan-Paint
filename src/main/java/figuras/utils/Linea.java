@@ -4,7 +4,7 @@ import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import util.Figura;
+import dibujante.Figura;
 
 public class Linea extends Figura {
 

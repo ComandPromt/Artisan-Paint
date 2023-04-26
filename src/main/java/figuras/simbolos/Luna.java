@@ -10,7 +10,7 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.Area;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Luna extends Figura {
 

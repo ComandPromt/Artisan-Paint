@@ -1,20 +1,18 @@
 package figuras.estrellas;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Star5P extends Figura {
 
 	Graphics2D g2;
 
-	public Star5P(Point ubicacion, int anchura, int altura,
-			boolean figuraRellena) {
+	public Star5P(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 

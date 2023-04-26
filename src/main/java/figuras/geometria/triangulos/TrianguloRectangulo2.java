@@ -1,4 +1,4 @@
-package figuras.simbolos;
+package figuras.geometria.triangulos;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics;
@@ -8,9 +8,9 @@ import java.awt.Point;
 import dibujante.MarcoDeFigura;
 import dibujante.Figura;
 
-public class Carta extends Figura {
+public class TrianguloRectangulo2 extends Figura {
 
-	public Carta(Point ubicacion, int anchura, int altura) {
+	public TrianguloRectangulo2(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
@@ -40,15 +40,29 @@ public class Carta extends Figura {
 
 		int altura = getMarcoDeFigura().getAltura();
 
+		Point punto1 = new Point(x + anchura, y);
+
+		Point punto2 = new Point(x, y + altura);
+
+		Point punto3 = new Point(x + anchura, y + altura);
+
+		int[] puntosX = { punto1.x, punto2.x, punto3.x };
+
+		int[] puntosY = { punto1.y, punto2.y, punto3.y };
+
+		if (dibujarRellena()) {
+
+			g2.setColor(getColorSecundario());
+
+			g2.fillPolygon(puntosX, puntosY, 3);
+
+		}
+
 		g2.setStroke(new BasicStroke(getGrosor()));
 
 		g2.setColor(getColor());
 
-		g2.drawRect(x, y, anchura, altura);
-
-		g2.drawLine(x, y, x + anchura / 2, y + altura / 2);
-
-		g2.drawLine(x + anchura, y, x + anchura / 2, y + altura / 2);
+		g2.drawPolygon(puntosX, puntosY, 3);
 
 	}
 

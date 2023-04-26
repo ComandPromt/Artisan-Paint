@@ -9,7 +9,7 @@ import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
 import dibujante.VentanaPrincipal;
-import util.Figura;
+import dibujante.Figura;
 
 public class Mandala5 extends Figura {
 

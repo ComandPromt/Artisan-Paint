@@ -8,9 +8,9 @@ import java.awt.Point;
 import dibujante.MarcoDeFigura;
 import dibujante.Figura;
 
-public class Carta extends Figura {
+public class Carta2 extends Figura {
 
-	public Carta(Point ubicacion, int anchura, int altura) {
+	public Carta2(Point ubicacion, int anchura, int altura) {
 
 		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
 
@@ -49,6 +49,10 @@ public class Carta extends Figura {
 		g2.drawLine(x, y, x + anchura / 2, y + altura / 2);
 
 		g2.drawLine(x + anchura, y, x + anchura / 2, y + altura / 2);
+
+		g2.drawLine(x, y + altura, (x + anchura / 2) - (anchura / 8), (y + altura / 2) - altura / 8);
+
+		g2.drawLine(x + anchura, y + altura, (x + anchura / 2) + (anchura / 8), (y + altura / 2) - altura / 8);
 
 	}
 

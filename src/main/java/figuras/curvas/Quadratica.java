@@ -7,7 +7,7 @@ import java.awt.Point;
 import java.awt.geom.Path2D;
 
 import dibujante.MarcoDeFigura;
-import util.Figura;
+import dibujante.Figura;
 
 public class Quadratica extends Figura {
 
