@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
-import com.comboBox.comboSuggestion.ComboBoxSuggestion;
-
 public class Metodos {
 
 	public static Connection connect;
@@ -117,7 +115,7 @@ public class Metodos {
 
 	}
 
-	public static LinkedList<Integer> obtenerNumeroFigura(int idioma, int padre) throws IOException, SQLException {
+	public static int obtenerNumeroFigura(int idioma, int padre, String hijo) throws IOException, SQLException {
 
 		LinkedList<Integer> lista = new LinkedList<Integer>();
 
@@ -132,7 +130,8 @@ public class Metodos {
 			ResultSet result2 = null;
 
 			String consulta = "SELECT G.FIGURA AS 'ID' FROM FIGURAS_" + tabla
-					+ " F JOIN GRUPOSFIGURAS G ON G.FIGURA=F.FIGURA WHERE G.GRUPO=" + padre;
+					+ " F JOIN GRUPOSFIGURAS G ON G.FIGURA=F.FIGURA WHERE G.GRUPO=" + padre + " AND TEXTO='" + hijo
+					+ "'";
 
 			st = connect.prepareStatement(consulta);
 
@@ -158,7 +157,7 @@ public class Metodos {
 
 		}
 
-		return lista;
+		return lista.get(0);
 
 	}
 
@@ -183,7 +182,6 @@ public class Metodos {
 
 				consulta = "SELECT TEXTO FROM FIGURAS_" + tabla
 						+ " F JOIN GRUPOSFIGURAS G ON G.FIGURA=F.FIGURA WHERE G.GRUPO=" + padre;
-
 				st = connect.prepareStatement(consulta);
 
 				result2 = st.executeQuery();
@@ -232,21 +230,6 @@ public class Metodos {
 		}
 
 		return lista;
-
-	}
-
-	public static ComboBoxSuggestion<String> insertarTexto(ComboBoxSuggestion<?> nombreFigura2,
-			LinkedList<String> lista) {
-
-		ComboBoxSuggestion<String> combo = new ComboBoxSuggestion<String>();
-
-		for (String dato : lista) {
-
-			combo.addItem(dato);
-
-		}
-
-		return combo;
 
 	}
 

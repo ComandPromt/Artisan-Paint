@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-import dibujante.MarcoDeFigura;
 import dibujante.Figura;
+import dibujante.MarcoDeFigura;
 
 public class Anillo extends Figura {
 
@@ -73,9 +73,11 @@ public class Anillo extends Figura {
 
 		}
 
-		g2.setColor(getColor());
+		else {
 
-		g2.drawOval(x, y, anchura, altura);
+			g2.drawOval(x, y, anchura, altura);
+
+		}
 
 		for (int i = 0; i < getVueltas(); i++) {
 

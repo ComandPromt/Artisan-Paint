@@ -325,6 +325,23 @@ public abstract class Figura {
 
 	public abstract void dibujar(Graphics g);
 
+	public void pintarRegla(Graphics g) {
+
+		g.fillRect(10, 10, 4, 4);
+
+		g.drawLine(10, 10, 10, 600);
+
+		g.drawLine(10, 10, 600, 10);
+
+		for (int i = 10; i <= 600; i += 50) {
+
+			g.drawString(Integer.toString(i), i, 10);
+
+			g.drawString(Integer.toString(i), 10, i);
+		}
+
+	}
+
 	public void setEscala(int escala) {
 
 		this.escala = escala;

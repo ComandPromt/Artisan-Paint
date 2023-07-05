@@ -11,9 +11,9 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.GeneralPath;
 
+import dibujante.Figura;
 import dibujante.MarcoDeFigura;
 import dibujante.VentanaPrincipal;
-import dibujante.Figura;
 
 public class Mandala3 extends Figura {
 
@@ -61,7 +61,7 @@ public class Mandala3 extends Figura {
 
 		GeneralPath star = new GeneralPath();
 
-		g2.setStroke(new BasicStroke(VentanaPrincipal.grosor.getValor()));
+		g2.setStroke(new BasicStroke(getGrosor()));
 
 		star.moveTo(xPoints[0], yPoints[0]);
 

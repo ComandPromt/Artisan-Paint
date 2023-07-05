@@ -5,8 +5,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-import dibujante.MarcoDeFigura;
 import dibujante.Figura;
+import dibujante.MarcoDeFigura;
 
 public class Cilindro extends Figura {
 
@@ -45,10 +45,10 @@ public class Cilindro extends Figura {
 
 		int radius = getRadio();
 
-		if(radius==0){ 
-		
-			radius=100;
-		
+		if (radius == 0) {
+
+			radius = 100;
+
 		}
 
 		if (dibujarRellena()) {

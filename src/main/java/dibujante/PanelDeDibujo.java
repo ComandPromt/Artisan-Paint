@@ -8,13 +8,9 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Stack;
 
 import javax.swing.JPanel;
-
-import dibujante.Figura;
-import util.Metodos;
 
 public class PanelDeDibujo extends JPanel {
 
@@ -73,20 +69,6 @@ public class PanelDeDibujo extends JPanel {
 						figuraActual.setPuntosDentroDeLaFigura(evento.getPoint());
 
 						return;
-
-					}
-
-					try {
-
-						LinkedList<Integer> lista = Metodos.obtenerNumeroFigura(
-								VentanaPrincipal.comboBox.getSelectedIndex(),
-								VentanaPrincipal.nombreFigura.getSelectedIndex() + 1);
-
-						figuraSeleccionada = lista.get(VentanaPrincipal.subTipoFigura.getSelectedIndex());
-
-					}
-
-					catch (Exception e) {
 
 					}
 

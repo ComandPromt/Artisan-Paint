@@ -6,9 +6,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
+import dibujante.Figura;
 import dibujante.MarcoDeFigura;
 import dibujante.VentanaPrincipal;
-import dibujante.Figura;
 
 public class Mandala4 extends Figura {
 
@@ -40,7 +40,7 @@ public class Mandala4 extends Figura {
 
 		int altura = getMarcoDeFigura().getAltura();
 
-		g2.setStroke(new BasicStroke(VentanaPrincipal.grosor.getValor()));
+		g2.setStroke(new BasicStroke(getGrosor()));
 
 		g2.setColor(getColor());
 

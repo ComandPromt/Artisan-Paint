@@ -1,18 +1,18 @@
-package figuras.simbolos;
+package figuras.enganches;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-import dibujante.MarcoDeFigura;
 import dibujante.Figura;
+import dibujante.MarcoDeFigura;
 
-public class Carta extends Figura {
+public class Ovalo extends Figura {
 
-	public Carta(Point ubicacion, int anchura, int altura) {
+	public Ovalo(Point ubicacion, int anchura, int altura) {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
 
 	}
 
@@ -44,11 +44,11 @@ public class Carta extends Figura {
 
 		g2.setColor(getColor());
 
-		g2.drawRect(x, y, anchura, altura);
+		g.drawArc(100, 100, 80, 100, 0, -180);
 
-		g2.drawLine(x, y, x + anchura / 2, y + altura / 2);
+		g.drawArc(70, 80, 110, 130, -20, 90);
 
-		g2.drawLine(x + anchura, y, x + anchura / 2, y + altura / 2);
+		g.drawArc(100, 83, 110, 130, 100, 100);
 
 	}
 

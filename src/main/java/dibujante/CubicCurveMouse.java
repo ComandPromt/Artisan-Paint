@@ -28,8 +28,7 @@ public class CubicCurveMouse extends JFrame {
 	DrawingCanvas canvas;
 
 	public CubicCurveMouse() {
-
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		setTitle("Drawing Curve");
 
