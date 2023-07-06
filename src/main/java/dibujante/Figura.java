@@ -145,13 +145,33 @@ public abstract class Figura {
 
 	public int getWidth() {
 
-		return marcoDeFigura.anchura;
+		try {
+
+			return marcoDeFigura.anchura;
+
+		}
+
+		catch (Exception e) {
+
+			return 0;
+
+		}
 
 	}
 
 	public int getHeight() {
 
-		return marcoDeFigura.altura;
+		try {
+
+			return marcoDeFigura.altura;
+
+		}
+
+		catch (Exception e) {
+
+			return 0;
+
+		}
 
 	}
 

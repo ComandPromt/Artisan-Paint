@@ -43,7 +43,6 @@ import com.buttons.simple.SimpleButton;
 import com.colourpicker.ScreenColor;
 import com.comboBox.comboSuggestion.ComboBoxSuggestion;
 import com.guilanguage.JComboBoxLanguage;
-import com.panels.Board;
 import com.spinner.simple.Spinner;
 
 import checkbox.CheckBoxCustom;
@@ -128,8 +127,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private VentanaPrincipal ventanaPrincipal;
 
-	Board lblFigura;
-
 	public static CopyColor color1;
 
 	public static CopyColor color2;
@@ -148,8 +145,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 	private JTextField textField_1;
 
-	Spinner escala;
-
 	public static CheckBoxCustom enCirculo;
 
 	private CheckBoxCustom figuraRellena;
@@ -157,9 +152,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 	public CheckBoxCustom dibujarRellena;
 
 	public static ComboBoxSuggestion efectoFigura;
+
 	private int idIdioma;
+
 	public static ComboBoxSuggestion nombreFigura;
+
 	private int idCategoria;
+
 	private short gradosFigura;
 
 	public static ComboBoxSuggestion subTipoFigura;
@@ -189,6 +188,40 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 	private Spinner angulo5;
 
 	private SimpleButton panel_3;
+
+	public static JLabel alto;
+
+	public static JLabel ancho;
+
+	private JLabel lblNewLabel;
+
+	private JLabel lblNewLabel_1;
+
+	private void reset() {
+
+		anguloGiro.setValor(90);
+
+		angulo2.setValor(-50);
+
+		angulo3.setValor(100);
+
+		angulo4.setValor(130);
+
+		angulo5.setValor(100);
+
+		sumarAngulo.setValor(0);
+
+		grosor.setValor(1);
+
+		vueltas.setValor(1);
+
+		radio.setValor(0);
+
+		moverArriba.setValor(0);
+
+		moverAbajo.setValor(0);
+
+	}
 
 	private void ponerNombresFiguras(int index) {
 
@@ -229,8 +262,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		catch (Exception e) {
 
-			e.printStackTrace();
-
 		}
 
 	}
@@ -260,8 +291,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			}
 
 		}
+
 		figuraGiro = gradosFigura;
-		System.out.println("figura girada " + gradosFigura);
+
 		orientacion.setIcon(
 				new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/flecha_" + gradosFigura + ".png")));
 
@@ -311,6 +343,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		initComponents();
 
+		reset();
+
 		ponerNombresFiguras(0);
 
 		calcularFigura();
@@ -353,12 +387,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 		figuraActual.setMoverArriba(moverArriba.getValor());
 
 		figuraActual.setMoverAbajo(moverAbajo.getValor());
-
-	}
-
-	private int saberEscala() {
-
-		return escala.getValor();
 
 	}
 
@@ -638,10 +666,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			enCirculo = new CheckBoxCustom();
 
-			escala = new Spinner();
-
-			escala.setMinValor(1);
-
 			figuraRellena = new CheckBoxCustom();
 
 			figuraRellena.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -675,10 +699,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 					limpiarEfectosFiguras();
 
-					lblFigura.setFigure(subTipoFigura.getSelectedIndex());
-
-					lblFigura.repaint();
-
 					if (subTipoFigura.getItemCount() > 0) {
 
 						if (efectosFiguras.contains(subTipoFigura.getSelectedItem().toString())) {
@@ -696,12 +716,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			});
 
 			listaFiguras = new LinkedList<>();
-
-			lblFigura = new Board();
-
-			lblFigura.setBackground(Color.WHITE);
-
-			lblFigura.setFont(new Font("Segoe UI", Font.BOLD, 11));
 
 			verRegla = new CheckBoxCustom();
 
@@ -1071,12 +1085,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			jLabel8_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 
-			JLabel dividir = new JLabel();
-
-			dividir.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/divide.png")));
-
-			dividir.setHorizontalAlignment(SwingConstants.CENTER);
-
 			JLabel jLabel8_1_1_1 = new JLabel();
 			jLabel8_1_1_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/en_circulo.png")));
 			jLabel8_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -1133,27 +1141,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 
-					anguloGiro.setValor(90);
-
-					angulo2.setValor(-50);
-
-					angulo3.setValor(100);
-
-					angulo4.setValor(130);
-
-					angulo5.setValor(100);
-
-					sumarAngulo.setValor(0);
-
-					grosor.setValor(1);
-
-					vueltas.setValor(1);
-
-					radio.setValor(40);
-
-					moverArriba.setValor(0);
-
-					moverAbajo.setValor(0);
+					reset();
 
 				}
 
@@ -1197,57 +1185,72 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 			panel_3.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/deshacer.png")));
 
+			ancho = new JLabel("");
+			ancho.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			ancho.setHorizontalAlignment(SwingConstants.CENTER);
+
+			alto = new JLabel("");
+			alto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			alto.setHorizontalAlignment(SwingConstants.CENTER);
+
+			lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/height.png")));
+
+			lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/width.png")));
+
 			GroupLayout gl_jPanel2 = new GroupLayout(jPanel2);
 			gl_jPanel2.setHorizontalGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING).addGroup(gl_jPanel2
 					.createSequentialGroup()
 					.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
-							.addComponent(picker, GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+							.addComponent(picker, GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
 							.addGroup(gl_jPanel2.createSequentialGroup()
 									.addComponent(idioma, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+									.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
 									.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-							.addComponent(grosor, GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+							.addComponent(grosor, GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(
 							gl_jPanel2.createParallelGroup(Alignment.LEADING)
 									.addGroup(gl_jPanel2.createSequentialGroup()
 											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-													.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 46,
+													.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 45,
 															Short.MAX_VALUE)
 													.addComponent(panel_1_1, Alignment.TRAILING,
-															GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
+															GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
 											.addPreferredGap(ComponentPlacement.RELATED)
 											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-													.addComponent(color2, GroupLayout.DEFAULT_SIZE, 116,
+													.addComponent(color2, GroupLayout.DEFAULT_SIZE, 115,
 															Short.MAX_VALUE)
-													.addComponent(color1, GroupLayout.DEFAULT_SIZE, 116,
+													.addComponent(color1, GroupLayout.DEFAULT_SIZE, 115,
 															Short.MAX_VALUE)))
-									.addGroup(gl_jPanel2.createSequentialGroup().addComponent(btn24_1,
-											GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE).addGap(18)
+									.addGroup(gl_jPanel2.createSequentialGroup()
+											.addComponent(btn24_1, GroupLayout.PREFERRED_SIZE, 33,
+													GroupLayout.PREFERRED_SIZE)
+											.addGap(18)
 											.addComponent(limpiarTodo, GroupLayout.PREFERRED_SIZE,
 													GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED, 53,
-													Short.MAX_VALUE)
+											.addPreferredGap(ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
 											.addComponent(orientacion)))
-					.addPreferredGap(ComponentPlacement.RELATED).addGroup(gl_jPanel2.createParallelGroup(
-							Alignment.LEADING).addComponent(dibujarRellena, Alignment.TRAILING,
-									GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+							.addComponent(dibujarRellena, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 18,
+									GroupLayout.PREFERRED_SIZE)
 							.addComponent(jLabel2_1, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 26,
 									GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
-							.createSequentialGroup().addComponent(moverArriba, GroupLayout.PREFERRED_SIZE, 46,
-									GroupLayout.PREFERRED_SIZE)
+							.createSequentialGroup()
+							.addComponent(moverArriba, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED).addComponent(jLabel3_1)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(moverAbajo, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED).addComponent(jLabel2_1_2,
-									GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(jLabel2_1_2, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
 							.addGroup(gl_jPanel2.createSequentialGroup()
-									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false).addGroup(
-											gl_jPanel2.createSequentialGroup()
-													.addComponent(
-															girarIzquierda_1, GroupLayout.PREFERRED_SIZE, 47,
+									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false)
+											.addGroup(gl_jPanel2.createSequentialGroup()
+													.addComponent(girarIzquierda_1, GroupLayout.PREFERRED_SIZE, 47,
 															GroupLayout.PREFERRED_SIZE)
 													.addPreferredGap(ComponentPlacement.RELATED)
 													.addComponent(centrar_1, GroupLayout.PREFERRED_SIZE,
@@ -1262,55 +1265,50 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 											.addGroup(gl_jPanel2.createSequentialGroup()
 													.addComponent(girarDerecha_1, GroupLayout.PREFERRED_SIZE, 43,
 															GroupLayout.PREFERRED_SIZE)
-													.addPreferredGap(ComponentPlacement.RELATED).addComponent(
-															jToggleButton4_1, GroupLayout.PREFERRED_SIZE, 38,
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(jToggleButton4_1, GroupLayout.PREFERRED_SIZE, 38,
 															GroupLayout.PREFERRED_SIZE))
 											.addComponent(anguloGiro, GroupLayout.PREFERRED_SIZE, 68,
 													GroupLayout.PREFERRED_SIZE))))
-					.addPreferredGap(ComponentPlacement.RELATED).addGroup(gl_jPanel2.createParallelGroup(
-							Alignment.LEADING, false).addGroup(
-									gl_jPanel2.createSequentialGroup().addGroup(
-											gl_jPanel2.createParallelGroup(Alignment.TRAILING, false)
-													.addComponent(radio, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-															GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-													.addComponent(
-															sumarAngulo, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
-															61, Short.MAX_VALUE))
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false).addGroup(
-													gl_jPanel2.createSequentialGroup().addComponent(dividir)
-															.addPreferredGap(ComponentPlacement.RELATED).addComponent(
-																	escala, GroupLayout.DEFAULT_SIZE,
-																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-													.addGroup(gl_jPanel2.createSequentialGroup()
-															.addComponent(jLabel6_1, GroupLayout.PREFERRED_SIZE, 33,
-																	GroupLayout.PREFERRED_SIZE)
-															.addPreferredGap(ComponentPlacement.RELATED).addComponent(
-																	vueltas, GroupLayout.PREFERRED_SIZE, 60,
-																	GroupLayout.PREFERRED_SIZE)))
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addGroup(
-													gl_jPanel2.createParallelGroup(Alignment.LEADING)
-															.addComponent(angulo4, GroupLayout.PREFERRED_SIZE, 63,
-																	GroupLayout.PREFERRED_SIZE)
-															.addComponent(angulo2, GroupLayout.PREFERRED_SIZE, 63,
-																	GroupLayout.PREFERRED_SIZE)))
-							.addGroup(
-									gl_jPanel2.createSequentialGroup()
-											.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 95,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 33,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(panel, GroupLayout.PREFERRED_SIZE, 44,
-													GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(verRegla, GroupLayout.PREFERRED_SIZE,
-													GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING).addGroup(gl_jPanel2
+							.createSequentialGroup()
+							.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(radio, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+											GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(sumarAngulo, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 61,
+											Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+									.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+									.addComponent(lblNewLabel_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 53,
+											Short.MAX_VALUE)
+									.addComponent(jLabel6_1, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+									.addComponent(ancho, GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+									.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
+											.addComponent(alto, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
 													Short.MAX_VALUE)
-											.addComponent(jLabel8_1)))
+											.addComponent(vueltas, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 60,
+													GroupLayout.PREFERRED_SIZE)))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+									.addComponent(angulo4, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+									.addComponent(angulo2, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)))
+							.addGroup(gl_jPanel2.createSequentialGroup()
+									.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 95,
+											GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(panel, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(verRegla, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+											GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE,
+											Short.MAX_VALUE)
+									.addComponent(jLabel8_1).addGap(12)))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
 							.addGroup(gl_jPanel2.createSequentialGroup().addGap(6)
@@ -1322,123 +1320,128 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 											GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED).addComponent(jLabel2_1_1)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(efectoFigura, GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+									.addComponent(efectoFigura, GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
 							.addGroup(gl_jPanel2.createSequentialGroup().addGap(10)
-									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false)
-											.addComponent(angulo5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-													Short.MAX_VALUE)
-											.addComponent(angulo3, GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
+									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+											.addComponent(angulo5, GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+											.addComponent(angulo3, GroupLayout.PREFERRED_SIZE, 65,
+													GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false)
 											.addComponent(subTipoFigura, GroupLayout.DEFAULT_SIZE,
 													GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-											.addComponent(nombreFigura, GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(lblFigura, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)))
+											.addComponent(nombreFigura, GroupLayout.DEFAULT_SIZE, 327,
+													Short.MAX_VALUE))))
 					.addContainerGap()));
 			gl_jPanel2.setVerticalGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING).addGroup(gl_jPanel2
 					.createSequentialGroup()
 					.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
 							.addGroup(gl_jPanel2.createSequentialGroup().addContainerGap().addComponent(idioma,
-									GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
-							.addComponent(centrar_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(girarIzquierda_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(girarDerecha_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(jToggleButton4_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(panel, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(verRegla, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(jLabel8_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(redondear, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(jLabel8_1_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(orientacion, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(jLabel8_1_1_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(enCirculo, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(malla, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+									GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
+							.addComponent(centrar_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(girarIzquierda_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(girarDerecha_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(jToggleButton4_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(panel, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(verRegla, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(redondear, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(jLabel8_1_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(orientacion, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(jLabel8_1_1_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(enCirculo, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(malla, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
 							.addGroup(gl_jPanel2.createSequentialGroup().addContainerGap()
 									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
 											.addComponent(efectoFigura, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
-													51, Short.MAX_VALUE)
-											.addComponent(jLabel2_1_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 51,
+													52, Short.MAX_VALUE)
+											.addComponent(jLabel2_1_1, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 52,
 													Short.MAX_VALUE)))
-							.addComponent(limpiarTodo, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(btn24_1, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-							.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
-							.addComponent(dividir, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-							.addGroup(gl_jPanel2.createSequentialGroup().addGap(7).addGroup(gl_jPanel2
+							.addComponent(limpiarTodo, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(btn24_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+							.addComponent(jLabel8_1, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE))
+					.addGap(13)
+					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_jPanel2.createSequentialGroup().addGap(9).addComponent(picker,
+									GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
+							.addGroup(gl_jPanel2.createSequentialGroup().addGap(14).addGroup(gl_jPanel2
 									.createParallelGroup(Alignment.LEADING)
-									.addGroup(gl_jPanel2.createSequentialGroup().addGap(9).addComponent(picker,
-											GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
-									.addGroup(gl_jPanel2.createSequentialGroup().addGap(14).addGroup(gl_jPanel2
-											.createParallelGroup(Alignment.LEADING)
-											.addComponent(dibujarRellena, GroupLayout.PREFERRED_SIZE, 33,
-													GroupLayout.PREFERRED_SIZE)
-											.addComponent(jLabel4_1)
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
-													.addComponent(jLabel9_1, GroupLayout.DEFAULT_SIZE, 49,
-															Short.MAX_VALUE)
-													.addComponent(color1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-											.addGap(9))
-									.addGroup(gl_jPanel2.createSequentialGroup().addGap(6).addGroup(gl_jPanel2
-											.createParallelGroup(Alignment.LEADING, false)
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
-													.addComponent(anguloGiro, GroupLayout.DEFAULT_SIZE,
-															GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-													.addComponent(sumarAngulo, GroupLayout.DEFAULT_SIZE, 54,
-															Short.MAX_VALUE))
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
-													.addComponent(vueltas, GroupLayout.DEFAULT_SIZE, 54,
-															Short.MAX_VALUE)
-													.addComponent(angulo2, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-													.addComponent(angulo3, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-													.addComponent(nombreFigura, GroupLayout.PREFERRED_SIZE, 51,
-															GroupLayout.PREFERRED_SIZE))
-											.addComponent(jLabel6_1, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
-											.addPreferredGap(ComponentPlacement.RELATED, 6, Short.MAX_VALUE))
-									.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
-									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(
+											dibujarRellena, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+									.addComponent(jLabel4_1)
+									.addGroup(gl_jPanel2.createParallelGroup(Alignment.TRAILING)
+											.addComponent(jLabel9_1, GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+											.addComponent(color1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE,
+													GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+									.addGap(9))
+							.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+							.addGroup(gl_jPanel2.createSequentialGroup().addGap(6)
 									.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
-											.addGroup(gl_jPanel2.createSequentialGroup().addGap(13).addComponent(color2,
-													GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
-											.addComponent(jLabel2_1_2, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-											.addComponent(subTipoFigura, GroupLayout.PREFERRED_SIZE, 48,
-													GroupLayout.PREFERRED_SIZE)
-											.addComponent(radio, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-											.addComponent(jLabel2_1, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-											.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
-													.addComponent(escala, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-													.addComponent(angulo4, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-													.addComponent(angulo5, GroupLayout.PREFERRED_SIZE,
-															GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-											.addComponent(panel_1_1, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-											.addComponent(grosor, GroupLayout.PREFERRED_SIZE, 58, Short.MAX_VALUE)
-											.addComponent(moverArriba, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-											.addComponent(moverAbajo, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-											.addGroup(gl_jPanel2.createSequentialGroup().addGap(1).addComponent(
-													jLabel3_1, GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))))
-							.addComponent(lblFigura, GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
-					.addContainerGap()));
+											.addGroup(gl_jPanel2.createSequentialGroup()
+													.addComponent(jLabel6_1, GroupLayout.DEFAULT_SIZE, 58,
+															Short.MAX_VALUE)
+													.addGap(6))
+											.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING, false)
+													.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
+															.addComponent(
+																	anguloGiro, GroupLayout.DEFAULT_SIZE,
+																	GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+															.addComponent(sumarAngulo, GroupLayout.DEFAULT_SIZE, 54,
+																	Short.MAX_VALUE))
+													.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
+															.addComponent(vueltas, GroupLayout.DEFAULT_SIZE, 54,
+																	Short.MAX_VALUE)
+															.addComponent(angulo2, GroupLayout.PREFERRED_SIZE,
+																	GroupLayout.DEFAULT_SIZE,
+																	GroupLayout.PREFERRED_SIZE)
+															.addComponent(angulo3, GroupLayout.PREFERRED_SIZE,
+																	GroupLayout.DEFAULT_SIZE,
+																	GroupLayout.PREFERRED_SIZE)
+															.addComponent(nombreFigura, GroupLayout.PREFERRED_SIZE, 51,
+																	GroupLayout.PREFERRED_SIZE))))
+									.addPreferredGap(ComponentPlacement.RELATED, 9, Short.MAX_VALUE)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_jPanel2.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_jPanel2.createSequentialGroup().addGap(13).addComponent(color2,
+									GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
+							.addComponent(jLabel2_1_2, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+							.addComponent(radio, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+							.addComponent(jLabel2_1, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+							.addGroup(gl_jPanel2.createParallelGroup(Alignment.BASELINE)
+									.addComponent(angulo4, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+									.addComponent(angulo5, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
+							.addComponent(panel_1_1, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+							.addComponent(grosor, GroupLayout.PREFERRED_SIZE, 61, Short.MAX_VALUE)
+							.addComponent(moverArriba, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+							.addComponent(moverAbajo, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+							.addGroup(gl_jPanel2.createSequentialGroup().addGap(1).addComponent(jLabel3_1,
+									GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
+							.addComponent(lblNewLabel, Alignment.TRAILING)
+							.addComponent(subTipoFigura, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
+							.addComponent(alto, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 30,
+									GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+					.addGroup(gl_jPanel2.createSequentialGroup().addContainerGap(144, Short.MAX_VALUE)
+							.addComponent(ancho, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE).addGap(55))
+					.addGroup(gl_jPanel2.createSequentialGroup().addContainerGap(142, Short.MAX_VALUE)
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+							.addGap(65)));
 
 			jPanel2.setLayout(gl_jPanel2);
 
 			javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-			layout.setHorizontalGroup(layout.createParallelGroup(Alignment.TRAILING)
+			layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
 					.addGroup(layout.createSequentialGroup()
-							.addGroup(layout.createParallelGroup(Alignment.TRAILING)
-									.addComponent(panelDeDibujo, GroupLayout.DEFAULT_SIZE, 1197, Short.MAX_VALUE)
-									.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 1197, Short.MAX_VALUE))
+							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+									.addComponent(panelDeDibujo, GroupLayout.DEFAULT_SIZE, 1239, Short.MAX_VALUE)
+									.addGroup(layout.createSequentialGroup().addGap(10).addComponent(jPanel2,
+											GroupLayout.PREFERRED_SIZE, 1197, Short.MAX_VALUE)))
 							.addContainerGap()));
-			layout.setVerticalGroup(layout.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-					layout.createSequentialGroup()
-							.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
+			layout.setVerticalGroup(layout.createParallelGroup(Alignment.TRAILING)
+					.addGroup(layout.createSequentialGroup().addContainerGap()
+							.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 227, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addComponent(panelDeDibujo, GroupLayout.PREFERRED_SIZE, 623, GroupLayout.PREFERRED_SIZE)));
 
@@ -1494,7 +1497,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 			color1.setColor(colorPrimario);
 
 		}
-		System.out.println("figura: " + figuraSeleccionada);
 
 		switch (figuraSeleccionada) {
 
@@ -1957,5 +1959,4 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 		return vueltas.getValor();
 
 	}
-
 }

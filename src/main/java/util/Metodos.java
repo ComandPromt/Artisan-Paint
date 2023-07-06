@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
+import dibujante.VentanaPrincipal;
+
 public class Metodos {
 
 	public static Connection connect;
@@ -19,77 +21,115 @@ public class Metodos {
 
 		String language = "";
 
-		switch (idioma) {
+		switch (VentanaPrincipal.idioma.getLanguage()) {
 
 		default:
-		case 0:
+
+		case ESPAÑOL:
+
 			language = "SPANISH";
+
 			break;
 
-		case 1:
+		case DEUTSCH:
+
 			language = "ALEMAN";
+
 			break;
 
-		case 2:
+		case ENGLISH:
+
 			language = "INGLES";
+
 			break;
 
-		case 3:
+		case FRANÇAIS:
+
 			language = "FRANCES";
+
 			break;
 
-		case 4:
+		case РУССКИЙ:
+
 			language = "RUSO";
+
 			break;
 
-		case 5:
+		case ITALIANO:
+
 			language = "ITALIANO";
+
 			break;
 
-		case 6:
+		case PORTUGUÊS:
+
 			language = "PORTUGES";
+
 			break;
 
-		case 7:
+		case 中國人:
+
 			language = "CHINO";
+
 			break;
 
-		case 8:
+		case HINDI:
+
 			language = "HINDU";
+
 			break;
-		case 9:
+		case 日本:
+
 			language = "JAPONES";
+
 			break;
 
-		case 10:
+		case CATALÀ:
+
 			language = "CATALAN";
+
 			break;
-		case 11:
+
+		case কোরিয়ান:
+
 			language = "BENGALI";
+
 			break;
 
-		case 12:
+		case عرب:
+
 			language = "ARABE";
+
 			break;
 
-		case 13:
+		case EUSKARA:
+
 			language = "EUSKERA";
+
 			break;
 
-		case 14:
+		case 한국어:
+
 			language = "KOREANO";
+
 			break;
 
-		case 15:
+		case TIẾNG_VIỆT:
+
 			language = "VIETNAMITA";
+
 			break;
 
-		case 16:
+		case POLSKIE:
+
 			language = "POLACO";
+
 			break;
 
-		case 17:
+		case GALEGO:
+
 			language = "GALEGO";
+
 			break;
 
 		}

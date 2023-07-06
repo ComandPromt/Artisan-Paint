@@ -10,8 +10,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-import dibujante.MarcoDeFigura;
 import dibujante.Figura;
+import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 
 public class Mandala1 extends Figura {
 
@@ -62,9 +63,11 @@ public class Mandala1 extends Figura {
 
 		int vueltas = getVueltas();
 
-		if (getAngulo() == 90) {
+		if (vueltas < 5) {
 
-			vueltas = 4;
+			vueltas = 5;
+
+			VentanaPrincipal.vueltas.setValor(vueltas);
 
 		}
 
@@ -78,9 +81,9 @@ public class Mandala1 extends Figura {
 
 		int angulo5 = getAngulo5();
 
-		for (int i = 0; i < vueltas; i++) {
+		System.out.println("vueltas: " + vueltas);
 
-			angulo += getAngulo();
+		for (int i = 0; i < vueltas; i++) {
 
 			int posX = (int) Math.round(mitad * Math.cos(Math.toRadians(angulo)));
 
@@ -99,6 +102,8 @@ public class Mandala1 extends Figura {
 			angulo4 += getSumarAngulo();
 
 			angulo5 += getSumarAngulo();
+
+			angulo += getAngulo();
 
 		}
 

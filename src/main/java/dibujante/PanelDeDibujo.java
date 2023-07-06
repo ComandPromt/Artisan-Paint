@@ -38,6 +38,14 @@ public class PanelDeDibujo extends JPanel {
 
 	}
 
+	private void actualizarMedidas() {
+
+		VentanaPrincipal.ancho.setText(Integer.toString(getFiguraActual().getWidth()));
+
+		VentanaPrincipal.alto.setText(Integer.toString(getFiguraActual().getHeight()));
+
+	}
+
 	public PanelDeDibujo() {
 
 		figuras = new ArrayList<>();
@@ -75,18 +83,16 @@ public class PanelDeDibujo extends JPanel {
 					figuraActual = ventanaPrincipal.figuraADibujarse(figuraSeleccionada, evento.getPoint(), 0, 0,
 							colorActual, colorSecundarioActual);
 
-					if (figuraActual != null) {
+					figuraActual.setGrosor(grosor);
 
-						figuraActual.setGrosor(grosor);
+					figuras.add(figuraActual);
 
-						figuras.add(figuraActual);
-
-					}
+					actualizarMedidas();
 
 				}
 
 				catch (Exception e) {
-					e.printStackTrace();
+
 				}
 
 			}
@@ -103,6 +109,8 @@ public class PanelDeDibujo extends JPanel {
 						g.setColor(new Color(0, 120, 215));
 
 						getFiguraActual().dibujarMarcoDeSeleccion(g);
+
+						actualizarMedidas();
 
 						g.setColor(colorActual);
 
@@ -126,6 +134,8 @@ public class PanelDeDibujo extends JPanel {
 			public void mouseDragged(MouseEvent evento) {
 
 				if (figuraActual != null) {
+
+					actualizarMedidas();
 
 					if (figuraActual.estaArrastrando()) {
 
