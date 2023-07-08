@@ -95,6 +95,7 @@ import figuras.mandalas.Mandala5;
 import figuras.mandalas.Mandala6;
 import figuras.mandalas.MandalaCirculo;
 import figuras.mandalas.MandalaEstrella;
+import figuras.marcas.Nike;
 import figuras.plantas.Trebol;
 import figuras.plantas.TrebolCuatroHojas;
 import figuras.plantas.TrebolTresHojas;
@@ -835,6 +836,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 		case 56:
 			figuraActual = new Spray(puntoActual);
+
+			break;
+
+		case 57:
+
+			figuraActual = new Nike(puntoActual, anchura, altura);
 
 			break;
 
