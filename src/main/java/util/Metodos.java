@@ -148,7 +148,7 @@ public class Metodos {
 		}
 
 		catch (Exception ex) {
-			ex.printStackTrace();
+
 		}
 
 		return connect;
@@ -176,7 +176,7 @@ public class Metodos {
 			st = connect.prepareStatement(consulta);
 
 			result2 = st.executeQuery();
-			System.out.println(consulta);
+
 			while (result2.next()) {
 
 				st = connect.prepareStatement(consulta);
@@ -188,7 +188,7 @@ public class Metodos {
 		}
 
 		catch (Exception ex) {
-			ex.printStackTrace();
+
 		}
 
 		finally {
@@ -260,7 +260,7 @@ public class Metodos {
 		}
 
 		catch (Exception ex) {
-			ex.printStackTrace();
+
 		}
 
 		finally {
