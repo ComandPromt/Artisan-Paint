@@ -8,13 +8,14 @@ import java.awt.Point;
 import java.awt.geom.GeneralPath;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class MandalaEstrella extends Figura {
 
-	public MandalaEstrella(Point ubicacion, int anchura, int altura) {
+	public MandalaEstrella() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

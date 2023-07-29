@@ -7,13 +7,14 @@ import java.awt.Point;
 import java.awt.geom.Path2D;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Quadratica extends Figura {
 
-	public Quadratica(Point ubicacion, int anchura, int altura) {
+	public Quadratica() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

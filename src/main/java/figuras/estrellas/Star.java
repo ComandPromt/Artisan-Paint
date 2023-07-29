@@ -8,13 +8,14 @@ import java.awt.Shape;
 import java.awt.geom.Path2D;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Star extends Figura {
 
-	public Star(Point ubicacion, int anchura, int altura) {
+	public Star() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

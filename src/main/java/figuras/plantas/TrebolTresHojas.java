@@ -10,13 +10,14 @@ import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class TrebolTresHojas extends Figura {
 
-	public TrebolTresHojas(Point ubicacion, int anchura, int altura) {
+	public TrebolTresHojas() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

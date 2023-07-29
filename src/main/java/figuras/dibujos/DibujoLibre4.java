@@ -11,9 +11,9 @@ import dibujante.Figura;
 
 public class DibujoLibre4 extends Figura {
 
-	public DibujoLibre4(Point ubicacion, int anchura, int altura) {
+	public DibujoLibre4() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

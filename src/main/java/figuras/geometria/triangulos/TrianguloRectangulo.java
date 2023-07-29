@@ -7,13 +7,14 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class TrianguloRectangulo extends Figura {
 
-	public TrianguloRectangulo(Point ubicacion, int anchura, int altura) {
+	public TrianguloRectangulo() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

@@ -9,12 +9,13 @@ import java.awt.geom.CubicCurve2D;
 
 import dibujante.Figura;
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 
 public class Nike extends Figura {
 
-	public Nike(Point ubicacion, int anchura, int altura) {
+	public Nike() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

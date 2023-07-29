@@ -12,9 +12,9 @@ import dibujante.Figura;
 
 public class DibujoLibre2 extends Figura {
 
-	public DibujoLibre2(Point ubicacion, int anchura, int altura) {
+	public DibujoLibre2() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

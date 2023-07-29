@@ -15,7 +15,9 @@ public class Lapiz extends Figura {
 
 	@Override
 	public boolean contiene(Point punto) {
+		
 		return false;
+		
 	}
 
 	public Lapiz(Point puntoInicial) {

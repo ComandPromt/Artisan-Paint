@@ -8,13 +8,14 @@ import java.awt.Point;
 import java.awt.geom.Point2D;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Rueda extends Figura {
 
-	public Rueda(Point ubicacion, int anchura, int altura) {
+	public Rueda() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

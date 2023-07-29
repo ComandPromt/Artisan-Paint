@@ -6,13 +6,14 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Trebol extends Figura {
 
-	public Trebol(Point ubicacion, int anchura, int altura) {
+	public Trebol() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

@@ -7,12 +7,13 @@ import java.awt.Point;
 
 import dibujante.Figura;
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 
 public class Cilindro extends Figura {
 
-	public Cilindro(Point ubicacion, int anchura, int altura) {
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+	public Cilindro() {
+	
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

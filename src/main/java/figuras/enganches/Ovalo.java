@@ -7,12 +7,13 @@ import java.awt.Point;
 
 import dibujante.Figura;
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 
 public class Ovalo extends Figura {
 
-	public Ovalo(Point ubicacion, int anchura, int altura) {
+	public Ovalo() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

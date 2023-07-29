@@ -11,9 +11,9 @@ import dibujante.VentanaPrincipal;
 
 public class YingYang extends Figura {
 
-	public YingYang(Point ubicacion, int anchura, int altura) {
+	public YingYang() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

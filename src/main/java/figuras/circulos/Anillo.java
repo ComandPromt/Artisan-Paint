@@ -8,12 +8,13 @@ import java.awt.Point;
 
 import dibujante.Figura;
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 
 public class Anillo extends Figura {
 
-	public Anillo(Point ubicacion, int anchura, int altura) {
+	public Anillo() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

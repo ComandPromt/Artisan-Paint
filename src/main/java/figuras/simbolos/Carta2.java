@@ -6,13 +6,14 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Carta2 extends Figura {
 
-	public Carta2(Point ubicacion, int anchura, int altura) {
+	public Carta2() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

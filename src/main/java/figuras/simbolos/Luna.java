@@ -10,13 +10,14 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.Area;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Luna extends Figura {
 
-	public Luna(Point ubicacion, int anchura, int altura) {
+	public Luna() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

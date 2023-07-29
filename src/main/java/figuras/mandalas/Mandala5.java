@@ -13,8 +13,8 @@ import dibujante.Figura;
 
 public class Mandala5 extends Figura {
 
-	public Mandala5(Point ubicacion, int anchura, int altura) {
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+	public Mandala5() {
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

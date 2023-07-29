@@ -7,6 +7,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Imagen extends Figura {
@@ -17,7 +18,7 @@ public class Imagen extends Figura {
 
 		this.bimg = bimg;
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

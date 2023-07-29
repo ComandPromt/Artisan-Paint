@@ -8,12 +8,13 @@ import java.awt.Point;
 
 import dibujante.Figura;
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 
 public class Restore extends Figura {
 
-	public Restore(Point ubicacion, int anchura, int altura) {
+	public Restore() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

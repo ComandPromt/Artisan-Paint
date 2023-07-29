@@ -11,6 +11,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.geom.Path2D;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Curva extends Figura {
@@ -30,7 +31,7 @@ public class Curva extends Figura {
 
 	public Curva(Point ubicacion, int anchura, int altura, Color color, boolean fanCircle) {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

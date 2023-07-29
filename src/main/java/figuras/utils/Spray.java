@@ -26,11 +26,11 @@ public class Spray extends Lapiz {
 		super(puntoInicial);
 
 		raio = 10.0;
-
-		equis = new ArrayList();
-
-		ys = new ArrayList();
-
+		
+		equis=new ArrayList<>();
+		
+		ys=new ArrayList<>();
+		
 		equis.add(1.7063972223700814);
 
 		ys.add(1.1749362568345256);

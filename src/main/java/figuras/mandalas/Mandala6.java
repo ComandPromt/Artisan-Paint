@@ -11,9 +11,9 @@ import dibujante.Figura;
 
 public class Mandala6 extends Figura {
 
-	public Mandala6(Point ubicacion, int anchura, int altura) {
+	public Mandala6() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 

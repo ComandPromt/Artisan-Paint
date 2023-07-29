@@ -7,17 +7,14 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class FlechaArriba extends Figura {
 
-	Point ubicacion;
+	public FlechaArriba() {
 
-	public FlechaArriba(Point ubicacion, int anchura, int altura) {
-
-		this.ubicacion = ubicacion;
-
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 		super.setGiro(true);
 

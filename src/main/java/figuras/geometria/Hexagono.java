@@ -6,13 +6,14 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Hexagono extends Figura {
 
-	public Hexagono(Point ubicacion, int anchura, int altura) {
+	public Hexagono() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), true));
 
 	}
 

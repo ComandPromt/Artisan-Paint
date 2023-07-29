@@ -6,10 +6,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
+import dibujante.Figura;
 import dibujante.MarcoDeFigura;
 import dibujante.VentanaPrincipal;
 
-public class Cadena extends dibujante.Figura {
+public class Cadena extends Figura {
 
 	private int figura;
 
@@ -21,11 +22,11 @@ public class Cadena extends dibujante.Figura {
 
 	}
 
-	public Cadena(int figura, Point ubicacion, int anchura, int altura) {
+	public Cadena(int figura) {
 
 		this.figura = figura;
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, true));
+		setMarcoDeFigura(new MarcoDeFigura(getLocation(), getAncho(), getAlto(), true));
 
 	}
 
@@ -156,7 +157,6 @@ public class Cadena extends dibujante.Figura {
 			break;
 
 		default:
-		case 2:
 
 			altura /= getVueltas();
 
@@ -245,10 +245,6 @@ public class Cadena extends dibujante.Figura {
 				y += getMoverAbajo();
 
 				y += mitad * 2;
-
-				break;
-
-			case 3:
 
 				break;
 

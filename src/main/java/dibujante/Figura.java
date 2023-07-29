@@ -47,6 +47,36 @@ public abstract class Figura {
 
 	protected int sumarAngulo;
 
+	private int ancho;
+	
+	private int alto;
+
+	private Point location;
+	
+	public int getAncho() {
+		
+		return ancho;
+		
+	}
+
+	public void setAncho(int ancho) {
+		
+		this.ancho = ancho;
+		
+	}
+
+	public int getAlto() {
+		
+		return alto;
+		
+	}
+
+	public void setAlto(int alto) {
+		
+		this.alto = alto;
+		
+	}
+
 	protected void setDefaultMoverAbajo() {
 
 		if (getMoverAbajo() == 0) {
@@ -58,11 +88,15 @@ public abstract class Figura {
 	}
 
 	public boolean isRedondear() {
+		
 		return redondear;
+		
 	}
 
 	public void setRedondear(boolean redondear) {
+		
 		this.redondear = redondear;
+		
 	}
 
 	public int getSumarAngulo() {
@@ -72,39 +106,57 @@ public abstract class Figura {
 	}
 
 	public void setSumarAngulo(int sumarAngulo) {
+		
 		this.sumarAngulo = sumarAngulo;
+		
 	}
 
 	public int getAngulo5() {
+		
 		return angulo5;
+		
 	}
 
 	public void setAngulo5(int angulo5) {
+		
 		this.angulo5 = angulo5;
+		
 	}
 
 	public int getAngulo2() {
+		
 		return angulo2;
+		
 	}
 
 	public void setAngulo2(int angulo2) {
+		
 		this.angulo2 = angulo2;
+		
 	}
 
 	public int getAngulo3() {
+		
 		return angulo3;
+		
 	}
 
 	public void setAngulo3(int angulo3) {
+		
 		this.angulo3 = angulo3;
+		
 	}
 
 	public int getAngulo4() {
+		
 		return angulo4;
+		
 	}
 
 	public void setAngulo4(int angulo4) {
+		
 		this.angulo4 = angulo4;
+		
 	}
 
 	public int getAngulo() {
@@ -372,6 +424,18 @@ public abstract class Figura {
 
 		this.dibujarRellena = dibujarRellena;
 
+	}
+
+	public void setLocation(Point puntoActual) {
+		
+		location=puntoActual;
+		
+	}
+
+	public Point getLocation() {
+		
+		return location;
+		
 	}
 
 }

@@ -10,15 +10,16 @@ import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 
 import dibujante.MarcoDeFigura;
+import dibujante.VentanaPrincipal;
 import dibujante.Figura;
 
 public class Poligono extends Figura {
 
 	private static double halfPI = Math.PI / 2.0;
 
-	public Poligono(Point ubicacion, int anchura, int altura) {
+	public Poligono() {
 
-		setMarcoDeFigura(new MarcoDeFigura(ubicacion, anchura, altura, false));
+		setMarcoDeFigura(new MarcoDeFigura(VentanaPrincipal.fake.getPosicion(), VentanaPrincipal.fake.getAncho(), VentanaPrincipal.fake.getAlto(), false));
 
 	}
 
